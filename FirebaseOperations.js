@@ -3,29 +3,6 @@ import { realDb,auth } from "./firebase";
 import { ref, set, push, get, child, query, orderByChild, startAt, endAt } from "firebase/database";
 
 
-export const getCurrentUser = async () => {
-  const user = auth.currentUser;
-  if (user) {
-    const userId = user.uid; // Get the UID of the current user
-    const userRef = ref(realDb, `users/${userId}`);
-    
-    try {
-      const snapshot = await get(userRef);
-      if (snapshot.exists()) {
-        return { id: userId, ...snapshot.val() }; // Return user ID and data
-      } else {
-        console.log("No user data available");
-        return null;
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      return null;
-    }
-  } else {
-    console.log("No user is signed in");
-    return null;
-  }
-};
 
 export const createUserInFirebase = (user) => {
   const userId = `user_${Date.now()}`;
