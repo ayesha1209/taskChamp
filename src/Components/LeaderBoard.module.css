@@ -62,4 +62,91 @@
   .Bronze {
     color: #CD7F32; /* Bronze Medal Color */
   }
+
+  .GraphContainer {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .ChartWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .UserLegend {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .UserLegend span {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .User1Color {
+    color: #4CAF50; /* Green */
+  }
+  
+  .User2Color {
+    color: #FF6347; /* Tomato Red */
+  }
+  
+  .User3Color {
+    color: #000912; /* Dodger Blue */
+  }
+  
+  .User4Color {
+    color: #FF8C00; /* Dark Orange */
+  }
+  
+  .User5Color {
+    color: #800080; /* Purple */
+  }
+  
+  .User6Color {
+    color: #20B2AA; /* Light Sea Green */
+  }
+  
+  .User7Color {
+    color: #FF1493; /* Deep Pink */
+  }
+  
+  .User8Color {
+    color: #8B4513; /* Saddle Brown */
+  }
+  
+  .User9Color {
+    color: #04253f; /* Steel Blue */
+  }
+  
+  .User10Color {
+    color: #FF4500; /* Orange Red */
+  }
+  
+  .ChartTooltip {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+  }
+  
+  .ChartLine {
+    stroke-width: 2px;
+  }
+  
   

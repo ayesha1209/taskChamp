@@ -4,9 +4,10 @@ import { User } from "../models/User";
 import TaskForm from "./TaskForm";
 import styles from "./StreakCalendar.module.css";
 
-const StreakCalendar = ({ userId }) => {
+const StreakCalendar = () => {
   const [calendarDays, setCalendarDays] = useState([]);
   const [activityDays, setActivityDays] = useState([]);
+  const userId = localStorage.getItem("userId");
 
   const initialDateTask = localStorage.getItem("selectedDate")
     ? localStorage.getItem("selectedDate")
@@ -91,7 +92,7 @@ const StreakCalendar = ({ userId }) => {
 
   return (
     <div className={styles.streak_calendar_container}>
-      <TaskForm userId={userId} reloadWithTask={reloadWithTask} />
+      <TaskForm reloadWithTask={reloadWithTask} />
       <br />
       <br />
       <div className={styles.streak_calendar_table}>
@@ -156,7 +157,6 @@ const StreakCalendar = ({ userId }) => {
       </div>
       <br />
       <TaskList
-        userId={userId}
         reloadWithTask={reloadWithTask}
         dateTask={dateTask}
       />

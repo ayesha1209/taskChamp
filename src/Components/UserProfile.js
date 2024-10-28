@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { User } from "../models/User";
 import styles from "./UserProfile.module.css";
 
-const UserProfile = ({ userId }) => {
+const UserProfile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const userId = localStorage.getItem("userId");
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -99,7 +100,8 @@ const UserProfile = ({ userId }) => {
 
   return (
     <div>
-      <br></br><br></br>
+      <br></br>
+      <br></br>
       <div className={styles.profile_container}>
         <h2 className={styles.profile_header}>User Profile</h2>
         <form className={styles.profile_form} onSubmit={handleSubmit}>

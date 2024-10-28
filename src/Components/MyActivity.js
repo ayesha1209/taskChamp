@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import styles from "./MyActivity.module.css";
 import Footer from "./Footer";
 
-const MyActivity = ({ userId }) => {
+const MyActivity = () => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.container}>
@@ -11,10 +11,8 @@ const MyActivity = ({ userId }) => {
           <Navbar />
         </div>
         <div className={styles.streak}>
-          <h1 className={styles.heading}>My Activity</h1>{" "}
-          <StreakCalendar userId={userId} />
+          <h1 className={styles.heading}>My Activity</h1> <StreakCalendar />
         </div>
-
       </div>
       <Footer className={styles.footer} />
     </div>

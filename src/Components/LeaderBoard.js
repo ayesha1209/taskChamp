@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { ref, get } from "firebase/database";
-import { realDb } from "../firebase"; 
-import styles from "./LeaderBoard.module.css"; 
+import { realDb } from "../firebase";
+import styles from "./LeaderBoard.module.css";
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+} from 'recharts'; // Import Recharts components
 
-const LeaderBoard = () => {
+const LeaderBoard = ({ loggedInUserId }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -25,11 +28,14 @@ const LeaderBoard = () => {
             0
           );
 
+          const weeklyData = user.weeklyData || [];
+
           return {
             userId,
             username: user.username,
             completedTasks,
             score,
+            weeklyData // Weekly performance data
           };
         });
 
@@ -38,9 +44,9 @@ const LeaderBoard = () => {
         setUsers(leaderboardData);
       }
     };
-    
+
     fetchUsersData();
-  }, []);
+  }, [loggedInUserId]);
 
   const getReward = (index) => {
     switch (index) {
@@ -77,11 +83,30 @@ const LeaderBoard = () => {
               <td>{user.userId}</td>
               <td>{user.completedTasks}</td>
               <td>{user.score}</td>
-              <td>{getReward(index)}</td> {/* Displaying the styled reward */}
+              <td>{getReward(index)}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {/* Display the performance graph */}
+      <h2>Weekly Performance Comparison (Top 7 Users)</h2>
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart
+          data={users.slice(0, 7)} // Show only the top 7 users
+          margin={{
+            top: 20, right: 30, left: 20, bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="username" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="score" stroke="#8884d8" />
+          <Line type="monotone" dataKey="completedTasks" stroke="#82ca9d" />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };

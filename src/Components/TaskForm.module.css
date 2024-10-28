@@ -10,16 +10,17 @@
   background-color: #f9f9f9;
 }
 
-.task_form input,
-.task_form select,
-.task_form button {
+.task_form_input,
+.task_form_select,
+.task_form_button {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
   font-size: 16px;
 }
 
-.task_form button {
+.task_form_button {
   background-color: #007bff;
   width: 100%;
   margin-top: 10px;
@@ -29,6 +30,6 @@
   border: none;
 }
 
-.task_form button:hover {
+.task_form_button:hover {
   background-color: #0056b3;
 }
