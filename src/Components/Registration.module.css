@@ -84,3 +84,16 @@
   color: red;
   font-size: 14px;
 }
+
+.reg_image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 1.5s ease-in-out;
+  box-shadow: 0 8px 16px rgba(59, 46, 70, 0.618);
+}
+
+.reg_image:hover {
+  transform: rotateY(360deg);
+}

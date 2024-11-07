@@ -7,6 +7,13 @@
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  
+  .LoggedInUserRow {
+    background-color: #f0e68c; /* Highlight color */
+    font-weight: bold;          /* Make text bold */
+  }
+  
   
   h1 {
     text-align: center;

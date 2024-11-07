@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+  const footerRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const footer = footerRef.current;
+    if (footer) {
+      const { width, height, left, top } = footer.getBoundingClientRect();
+
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+
+      const xPercent = (x / width) * 100;
+      const yPercent = (y / height) * 100;
+
+      footer.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+    }
+  };
+
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
+    <footer
+      className={styles.footer}
+      ref={footerRef}
+      onMouseMove={handleMouseMove}
+    >
+      <div className={styles.footer_container}>
         <div className={styles.footerSection}>
-          <h2 className={styles.title}>Task List</h2>
+          <h2 className={styles.footer_title}>Task List</h2>
           <p>
             Stay organized and boost your productivity with our Task List App.
             Easily manage your daily tasks, set priorities, and track your
@@ -15,7 +36,7 @@ const Footer = () => {
         </div>
         <div className={`${styles.footerSection} ${styles.footerMargin}`}>
           <h3>Navigation</h3>
-          <ul className={styles.navList}>
+          <ul className={styles.footer_navList}>
             <li>Home</li>
             <li>About Us</li>
             <li>Services</li>
@@ -38,7 +59,7 @@ const Footer = () => {
       </div>
       <div className={styles.footerBottom}>
         <p>&copy; 2024 All rights reserved | Block is made by Khushi Patel</p>
-        <div className={styles.socialIcons}>
+        <div className={styles.footer_socialIcons}>
           <img src="/facebook.svg" alt="Facebook" className="socialIcon" />
           <img src="/twitter.svg" alt="Twitter" className="socialIcon" />
           <img src="/instagram.svg" alt="Instagram" className="socialIcon" />
