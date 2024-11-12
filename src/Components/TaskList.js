@@ -103,7 +103,7 @@ const TaskList = ({ dateTask, reloadWithTask }) => {
         }}
       >
         <img
-          src="tasklist.jpg"
+          src="task_list.png"
           alt="Task List"
           className={styles.tasklist_image}
         />

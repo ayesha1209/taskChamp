@@ -1,12 +1,6 @@
-// #f3eeeate second bg
-// #fdf6f0 white bg
-// #fa823e orange
-// #f5766f pink
-// #ffc11e yellow
-// #309a42 green
-
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { realDb } from "../firebase";
+import styles from "./Login.module.css";
 import { ref, get, child } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +10,53 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const cardRef = useRef(null);
+  const glowRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const glow = glowRef.current;
+    const handleMouseMove = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    glow.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      glow.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const card = cardRef.current;
+
+    const handleMouseMove = (e) => {
+      const { width, height, left, top } = card.getBoundingClientRect();
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+
+      const rotateX = (y / height - 0.5) * 10;
+      const rotateY = (x / width - 0.5) * -10;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const handleMouseLeave = () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+    };
+
+    if (card) {
+      card.addEventListener("mousemove", handleMouseMove);
+      card.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (card) {
+        card.removeEventListener("mousemove", handleMouseMove);
+        card.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,100 +96,105 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex px-20 py-5 items-center justify-center bg-[#fcf8f5]">
-      <div className="flex flex-col md:flex-row w-[80%] max-w-6xl shadow-xl drop-shadow-xl rounded-3xl  overflow-hidden bg-white ">
-        {/* Left Section */}
-        <div className="flex-1 bg-[#f0f5fc] text-white flex flex-col rounded-3xl items-center justify-center p-8 order-1 md:order-1">
-          <h2 className="text-5xl font-bold mb-4 mt-7 text-black">
-            Welcome back !!
-          </h2>
-          <p className="text-3xl  font-bold text-center text-[#f5766f]">
-            Let's stay on track!
-          </p>
-          <img src="/tt4.png" alt="Animated Graphic" className="w-4/4" />
-        </div>
-
-        {/* Right Section */}
-        <div className="flex-1 p-8 bg-[#ffffff] order-2 md:order-2  rounded-3xl ">
-          <div className="w-full max-w-md mx-auto">
-            <h2 className="text-5xl font-bold text-gray-800 text-center mb-8 mt-6">
-              Login
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <label className="block text-gray-700 text-md ">
-                Username or Email
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your Username or Email"
-                className="w-full px-4 py-2 text-md border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A52D5]  focus:shadow-md transition-transform duration-300"
-                value={usernameOrEmail}
-                onChange={(e) => setUsernameOrEmail(e.target.value)}
-                required
-              />
-
-              <label className="block text-gray-700 mt-4 text-md ">
-                Password
-              </label>
-              <div className="flex items-center">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your Password"
-                  className="w-full bg-white px-4 py-2 text-md border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A52D5]  focus:shadow-md transition-transform duration-300"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                <button
-                  type="button"
-                  className="ml-2 text-[#6C63FF] text-md hover:text-[#5A52D5] transition duration-500"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  <img
-                    src={showPassword ? "/visible.svg" : "/hidden.svg"}
-                    alt={showPassword ? "Hide" : "Show"}
-                    className="w-5 h-5"
-                  />
-                </button>
-              </div>
-
-              <div className="flex items-center mt-4">
-                <input type="checkbox" id="terms" className="mr-2 " />
-                <label htmlFor="terms" className="text-gray-600 mb-4 mt-2">
-                  I agree to the{" "}
-                  <span className="text-[#6C63FF] underline mb-4 mt-2">
-                    terms of service
-                  </span>{" "}
-                  and{" "}
-                  <span className="text-[#6C63FF] underline mb-4 mt-2">
-                    privacy policy
-                  </span>
-                  .
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#669fd6] text-white text-lg py-1  font-bold rounded-lg mt-6 hover:bg-[#4b68ae] hover:scale-105 transition duration-1000"
+    <div
+      ref={glowRef}
+      className={`${styles.minHScreen} flex items-center justify-center relative`}
+    >
+      <div className={styles.log_inner}>
+        <div
+          className="glowingEffect"
+          style={{
+            position: "absolute",
+            left: `${cursorPosition.x}px`,
+            top: `${cursorPosition.y}px`,
+            width: "1px",
+            height: "1px",
+            backgroundColor: "#6a3ba3",
+            borderRadius: "50%",
+            boxShadow: "0 0 200px 200px #481e7cf5",
+            pointerEvents: "none",
+            transform: "scale(1)",
+            transition: "all 0s ease-in-out",
+            opacity: 0.3,
+            animation: "pulse 0s infinite",
+          }}
+        ></div>
+        <div
+          ref={cardRef}
+          className={`${styles.cardContainer} flex flex-col md:flex-row w-[40%] max-w-6xl relative`}
+        >
+          <div className={`${styles.rightSection} flex-1`}>
+            <div className="w-full max-w-md mx-auto">
+              <h2
+                className={`${styles.loginTitle} text-4xl font-bold text-center mb-8 mt-6`}
               >
                 Login
-              </button>
-
-              {error && (
-                <p className="text-red-500 text-md text-center mt-4">{error}</p>
-              )}
-            </form>
-
-            <div className="text-center mt-6">
-              <p className="text-gray-600 text-md">
-                Don't have an account?{" "}
-                <button
-                  onClick={() => navigate("/Registration")}
-                  className="text-[#4b68ae] underline hover:text-[#2c2064] font-semibold hover:scale-100 text-lg transition duration-600"
-                >
-                  Register
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-1">
+                <label className={styles.label}>Username or Email</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Username or Email"
+                  className={`${styles.input} w-full`}
+                  value={usernameOrEmail}
+                  onChange={(e) => setUsernameOrEmail(e.target.value)}
+                  required
+                />
+                <br></br>
+                <br></br>
+                <label className={`${styles.label}`}>Password</label>
+                <div className="flex items-center relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your Password"
+                    className={`${styles.input} w-full`}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-3 flex items-center text-blue-500"
+                  >
+                    <img
+                      src={showPassword ? "/visible.svg" : "/hidden.svg"}
+                      alt={showPassword ? "Hide" : "Show"}
+                      className="w-5 h-5"
+                    />
+                  </button>
+                </div>
+                <div className="flex items-center mt-4 mb-4">
+                  <input type="checkbox" id="terms" className="mr-2 mt-2" />
+                  <label
+                    htmlFor="terms"
+                    className={`${styles.textGray} mb-2.5 mt-4`}
+                  >
+                    I agree to the{" "}
+                    <span className={styles.link}>terms of service</span> and{" "}
+                    <span className={styles.link}>privacy policy</span>.
+                  </label>
+                </div>
+                <button type="submit" className={`${styles.submitButton} mt-4`}>
+                  Login
                 </button>
-              </p>
+                {error && (
+                  <p className={`${styles.errorMessage} text-center mt-4`}>
+                    {error}
+                  </p>
+                )}
+              </form>
+              <div className="text-center mt-6">
+                <p className={`${styles.textGray} text-md`}>
+                  Don't have an account?{" "}
+                  <button
+                    onClick={() => navigate("/Registration")}
+                    className={styles.registerLink}
+                  >
+                    Register
+                  </button>
+                </p>
+              </div>
             </div>
           </div>
         </div>

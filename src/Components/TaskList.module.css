@@ -11,55 +11,24 @@
   font-weight: 800;
   margin-top: 30px;
   width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(229, 197, 255),
+    rgb(201, 184, 255),
+    rgb(205, 198, 255)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   text-align: center !important;
   position: absolute;
-  margin-bottom: 30px !important;
-}
-
-.tasklist h1:nth-child(1) {
-  color: #58b0be;
-}
-
-.tasklist h1:nth-child(2) {
-  color: #176b87;
-  animation: animate 5s ease-in-out infinite;
-}
-
-@keyframes animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      15% 44%,
-      32% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
-  }
-
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      16% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
-  }
 }
 
 .tasklist_image {
-  height: 250px;
-  margin: 40px 0;
-  animation: pulse 20s ease-in-out infinite;
+  height: 320px;
+  margin: 0;
+  animation: pulse 7s ease-in-out infinite;
 }
 
 @keyframes pulse {

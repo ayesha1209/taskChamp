@@ -21,6 +21,24 @@
 .searchWrapper {
   position: relative;
 }
+.window_div {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(40px);
+}
+
+.window_div_outer {
+  width: 100%;
+  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+}
+
+.chat_window {
+  flex: 1;
+  background-color: #6b7280;
+  backdrop-filter: blur(40px);
+  overflow-y: auto;
+}
 
 .searchInput {
   width: 100%;
@@ -91,6 +109,20 @@
   color: #111827;
 }
 
+.no_chat_outer {
+  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+}
+
+.no_chat_inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.635);
+  font-size: 18px;
+  align-content: center;
+  backdrop-filter: blur(40px);
+}
+
 .lastMessage {
   font-size: 0.875rem;
   color: #6b7280;
@@ -101,4 +133,3 @@
   font-size: 0.75rem;
   color: #9ca3af;
 }
-

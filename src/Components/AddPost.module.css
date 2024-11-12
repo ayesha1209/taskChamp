@@ -1,0 +1,29 @@
+.flip-card {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover {
+  transform: rotateX(360deg);
+}
+
+.share_thought {
+  background-color: rgba(234, 213, 255, 0.1);
+}
+
+.add_post_btn {
+  background-color: rgba(93, 50, 179, 0.748);
+}
+
+.add_post_btn:hover {
+  background-color: rgba(75, 34, 156, 0.858);
+}

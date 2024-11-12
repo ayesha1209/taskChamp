@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { createUserInFirebase } from "../FirebaseOperations";
 import { useNavigate } from "react-router-dom";
 import { User } from "../models/User";
@@ -19,6 +19,53 @@ const Registration = () => {
   const [error, setError] = useState("");
   const [profileImage, setProfileImage] = useState(null);
   const [profileImageUrl, setProfileImageUrl] = useState("");
+  const cardRef = useRef(null);
+  const glowRef = useRef(null);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const glow = glowRef.current;
+    const handleMouseMove = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    glow.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      glow.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const card = cardRef.current;
+
+    const handleMouseMove = (e) => {
+      const { width, height, left, top } = card.getBoundingClientRect();
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+
+      const rotateX = (y / height - 0.5) * 10; // Rotate based on vertical mouse movement
+      const rotateY = (x / width - 0.5) * -10; // Rotate based on horizontal mouse movement
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const handleMouseLeave = () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+    };
+
+    if (card) {
+      card.addEventListener("mousemove", handleMouseMove);
+      card.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (card) {
+        card.removeEventListener("mousemove", handleMouseMove);
+        card.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -88,155 +135,172 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#fcf8f5] px-20 py-7">
-      <div className="flex w-[90%] h-[70%] max-w5xl rounded-3xl shadow-lg bg-white overflow-hidden">
-        <div className="w-[90%] md:w-[50%] px-10 py-6">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-            Create Account
-          </h2>
+    <div ref={glowRef} className={`${styles.reg_outer}`}>
+      <div
+        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 py-7 ${styles.reg_inner} `}
+      >
+        <div
+          className="glowingEffect"
+          style={{
+            position: "absolute",
+            left: `${cursorPosition.x}px`,
+            top: `${cursorPosition.y}px`,
+            width: "1px",
+            height: "1px",
+            backgroundColor: "#6a3ba3",
+            borderRadius: "50%",
+            boxShadow: "0 0 200px 200px #481e7cf5",
+            pointerEvents: "none",
+            transform: "scale(1)",
+            transition: "all 0s ease-in-out",
+            opacity: 0.3,
+            animation: "pulse 0s infinite",
+          }}
+        ></div>
 
-          {/* Image Preview */}
-          {profileImageUrl && (
-            <div className="mb-4 flex justify-center">
-              <img
-                src={profileImageUrl}
-                alt="Profile Preview"
-                className={styles.reg_image}
-              />
-            </div>
-          )}
+        <div ref={cardRef} className={styles.reg_container}>
+          <div className={`${styles.blurBackground} w-[100%] md:w-[100%]`}>
+            <div className={styles.blur_inner}>
+              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-6">
+                Create Account
+              </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm text-gray-700 font-medium mb-1">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="username"
-                placeholder="Enter Username"
-                className="w-full px-3 py-1 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">
-                Email Address
-              </label>
-              <input
-                type="email"
-                className="w-full px-3 text-sm py-1 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                name="email"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="w-full px-3 py-1 border text-sm border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  name="password"
-                  required
-                />
+              {/* Image Preview */}
+              {profileImageUrl && (
+                <div className="mb-4 flex justify-center">
+                  <img
+                    src={profileImageUrl}
+                    alt="Profile Preview"
+                    className={styles.reg_image}
+                  />
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm text-[#d1c4db] font-medium mb-1">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter Username"
+                    className={styles.input}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[#d1c4db] text-sm font-medium mb-1">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    className={styles.input}
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[#d1c4db] text-sm font-medium mb-1">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      className={styles.input}
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      name="password"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute inset-y-0 right-3 flex items-center text-blue-500"
+                    >
+                      <img
+                        src={showPassword ? "/visible.svg" : "/hidden.svg"}
+                        alt={showPassword ? "Hide" : "Show"}
+                        className="w-4 h-4"
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Birthdate Input */}
+                <div>
+                  <label className="block text-[#d1c4db] text-sm font-medium mb-1">
+                    Birthdate
+                  </label>
+                  <input
+                    type="date"
+                    className={styles.input}
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
+                  />
+                </div>
+
+                {/* Country Input */}
+                <div>
+                  <label className="block text-[#d1c4db] text-sm font-medium mb-1">
+                    Country
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.input}
+                    placeholder="Enter your country"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Image Upload */}
+                <div>
+                  <label className="block text-[#d1c4db] text-sm font-medium mb-1">
+                    Profile Image
+                  </label>
+                  <input
+                    type="file"
+                    onChange={handleImageUpload}
+                    className={styles.input}
+                  />
+                </div>
+
+                <button type="submit" className={styles.submitButton}>
+                  Register
+                </button>
+                {userId && (
+                  <p className="text-center text-gray-600 mt-4">
+                    User ID: {userId}
+                  </p>
+                )}
+
+                {error && (
+                  <p className="text-center text-red-500 text-lg mt-4">
+                    {error}
+                  </p>
+                )}
+              </form>
+
+              <p className="text-center text-md text-[#d1c4db] mt-4">
+                Already have an account?{" "}
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-3 flex items-center text-blue-500"
+                  onClick={handleLoginRedirect}
+                  className="text-[#e09eff] text-md hover:text-[#c880d5]"
                 >
-                  <img
-                    src={showPassword ? "/visible.svg" : "/hidden.svg"}
-                    alt={showPassword ? "Hide" : "Show"}
-                    className="w-5 h-5"
-                  />
+                  Login here
                 </button>
-              </div>
-            </div>
-
-            {/* Birthdate Input */}
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">
-                Birthdate
-              </label>
-              <input
-                type="date"
-                className="w-full px-3 py-1 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-                value={birthdate}
-                onChange={(e) => setBirthdate(e.target.value)}
-              />
-            </div>
-
-            {/* Country Input */}
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">
-                Country
-              </label>
-              <input
-                type="text"
-                className="w-full px-3 py-1 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-                placeholder="Enter your country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                required
-              />
-            </div>
-
-            {/* Image Upload */}
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">
-                Profile Image
-              </label>
-              <input
-                type="file"
-                onChange={handleImageUpload}
-                className="w-full text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#669fd6] text-white text-sm font-bold py-2 rounded-lg mt-6 hover:bg-[#4b68ae] hover:scale-105 transition duration-700"
-            >
-              Register
-            </button>
-            {userId && (
-              <p className="text-center text-gray-600 mt-4">
-                User ID: {userId}
               </p>
-            )}
-
-            {error && (
-              <p className="text-center text-red-500 text-lg mt-4">{error}</p>
-            )}
-          </form>
-
-          <p className="text-center text-md text-gray-700 mt-4">
-            Already have an account?{" "}
-            <button
-              type="button"
-              onClick={handleLoginRedirect}
-              className="text-blue-500 text-md underline hover:text-blue-700"
-            >
-              Login here
-            </button>
-          </p>
-        </div>
-        <div className="hidden md:flex md:w-1/2 order-1 md:order-1 bg-[#f0f5fc] rounded-3xl flex-col items-center justify-center p-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-800">Welcome!!</h1>
-          <p className="text-red-500 font-medium text-3xl mt-2 mb-4">
-            Ready to conquer your day?
-          </p>
-          <img src="tt5.png" alt="Illustration" className="w-4/4" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

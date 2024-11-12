@@ -1,12 +1,17 @@
 .footer {
-  background: linear-gradient(90deg, #ff8a8a, #9c76c1, #3bacb6);
-  color: #fff;
-  padding: 15px 0;
+  /* background: linear-gradient(90deg, #220448, #290950, #380575); */
+  color: #d1c4db;
   font-size: 14px;
+  background-image: url("https://i.pinimg.com/564x/d2/6a/f4/d26af4e954c30605acbd7d2f486984ed.jpg");
   position: relative;
   overflow: hidden;
   background-size: 200% 200%;
   transition: background-position 0.3s ease-out, background-color 0.3s ease;
+}
+
+.footer_in {
+  padding: 15px 0;
+  backdrop-filter: blur(200px);
 }
 
 .footer_container {
@@ -30,7 +35,7 @@
 .footer_title {
   font-size: 20px;
   margin-bottom: 5px;
-  color: aliceblue;
+  color: white;
   font-weight: 700;
   text-align: left;
 }
@@ -39,6 +44,7 @@
   margin-bottom: 10px;
   font-size: large;
   font-weight: 700;
+  color: white;
 }
 
 .footer_navList {
@@ -51,12 +57,13 @@
 }
 
 .footer_navList li:hover {
-  color: #30363c;
+  color: #e09eff;
 }
 
 .footerBottom {
   text-align: center;
   margin-top: 15px;
+  color: white;
 }
 
 .footerBottom p {

@@ -91,37 +91,39 @@ const TaskItem = ({
   };
 
   return (
-    <div className={`${styles.task_item} ${isDone ? styles.done : ""}`}>
-      <h3>{task.taskname}</h3>
-      <p>Level : {task.level}</p>
-      <label>
-        Done :{" "}
-        <input type="checkbox" checked={isDone} onChange={handleToggleDone} />
-      </label>
-      <button className={styles.delete} onClick={handleDeleteClick}>
-        Delete
-      </button>
-      <button className={styles.update} onClick={openModal}>
-        Update
-      </button>
-      <button className={styles.down} onClick={handleDownClick}>
-        <img src="down.svg"></img>
-      </button>
-      <button className={styles.up} onClick={handleUpClick}>
-        <img src="up.svg"></img>
-      </button>
-      {isModalOpen && (
-        <div className={styles.taskUpdateModal}>
-          <div className={styles.modalContent}>
-            <TaskUpdate
-              isOpen={isModalOpen}
-              onClose={closeModal}
-              task={updatedTask}
-              onUpdate={updateTask}
-            />
+    <div className={`${styles.task_item_outer}`}>
+      <div className={`${styles.task_item} ${isDone ? styles.done : ""}`}>
+        <h3>{task.taskname}</h3>
+        <p>Level : {task.level}</p>
+        <label>
+          Done :{" "}
+          <input type="checkbox" checked={isDone} onChange={handleToggleDone} />
+        </label>
+        <button className={styles.delete} onClick={handleDeleteClick}>
+          Delete
+        </button>
+        <button className={styles.update} onClick={openModal}>
+          Update
+        </button>
+        <button className={styles.down} onClick={handleDownClick}>
+          <img src="down.svg"></img>
+        </button>
+        <button className={styles.up} onClick={handleUpClick}>
+          <img src="up.svg"></img>
+        </button>
+        {isModalOpen && (
+          <div className={styles.taskUpdateModal}>
+            <div className={styles.modalContent}>
+              <TaskUpdate
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                task={updatedTask}
+                onUpdate={updateTask}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

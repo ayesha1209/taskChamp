@@ -1,0 +1,37 @@
+.flip_card {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(204, 188, 226, 0.6);
+  color: #1f0734;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.chat_rec:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar_inner {
+  height: 100%;
+  backdrop-filter: blur(500px);
+  background-color: #0801207e;
+}
+
+.sidebar_outer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 1.5px solid rgb(187, 159, 213);
+  background-position: center;
+  /* background: linear-gradient(90deg, #020925de, #2f0e5e, #2f0644e0); */
+  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+}
+
+.flip_card:hover {
+  transform: rotateY(360deg);
+}
