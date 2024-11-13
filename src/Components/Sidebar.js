@@ -104,14 +104,14 @@ const Sidebar = ({ currentUser, recentChats, allUsers, onSelectChat }) => {
               <div
                 key={chat.uid}
                 onClick={() => onSelectChat(chat)}
-                className={`flex items-center gap-3 p-4 cursor-pointer border-b border-gray-100 ${styles.chat_rec}`}
+                className={`flex items-center gap-3 p-3 cursor-pointer border-b border-gray-500 ${styles.chat_rec}`}
               >
                 <div className={styles.flip_card}>
                   {chat.username?.[0]?.toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-baseline">
-                    <div className="text-lg font-semibold text-white truncate">
+                    <div className="text-md font-semibold text-white truncate">
                       {chat.username}
                     </div>
                     {lastMessage && (

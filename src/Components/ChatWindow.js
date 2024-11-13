@@ -120,7 +120,7 @@ const ChatWindow = ({ currentUser, chatPartner }) => {
           <div className={styles.flip_card}>
             {chatPartner.username?.[0]?.toUpperCase()}
           </div>
-          <div className="text-xl font-bold ml-2 text-white">
+          <div className="text-xl font-semibold ml-2 text-white">
             {chatPartner.username}
           </div>
         </div>
@@ -142,14 +142,14 @@ const ChatWindow = ({ currentUser, chatPartner }) => {
         <div className={`p-5`}>
           <div className="flex items-center gap-2">
             <button className="text-gray-400 hover:text-gray-600">
-              <Paperclip className="h-5 w-5 text-[#D4BEE4] hover:text-[#9B7EBD]" />
+              <Paperclip className="h-5 w-5 text-[#8d88b3] hover:text-[#625b97]" />
             </button>
             <input
               type="text"
               placeholder="Type a message..."
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
-              className="flex-1 placeholder-[#9B7EBD] text-[#3B1E54] font-semibold border border-[#9B7EBD] rounded-lg px-4 py-2 focus:outline-none focus:border-[#3B1E54]"
+              className="flex-1 placeholder-[#8d88b3] text-[#3B1E54] font-semibold border border-[#9B7EBD] rounded-lg px-4 py-2 focus:outline-none focus:border-[#3B1E54]"
             />
             <button onClick={sendMessage} className={styles.chat_button}>
               <Send className="h-4 w-4" />

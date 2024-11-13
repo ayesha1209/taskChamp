@@ -28,7 +28,7 @@
   right: 0;
   bottom: 0;
   border-radius: 8px;
-  border: 3px solid #f3f1ffc1;
+  border: 3px solid #9793ba;
   animation: rotate-border 7s linear infinite;
   transition: border-color 0.5s ease;
   pointer-events: none;
@@ -61,7 +61,7 @@
 }
 
 .task_item:hover {
-  border: 3px solid #f3f1ffc1;
+  border: 3px solid #9793ba;
   backdrop-filter: blur(200px) !important;
   transform: scale(1.02);
 }

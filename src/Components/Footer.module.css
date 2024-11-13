@@ -1,8 +1,8 @@
 .footer {
-  /* background: linear-gradient(90deg, #220448, #290950, #380575); */
-  color: #d1c4db;
+  background: linear-gradient(90deg, #422c7d, #251e67, #2d247f);
+  color: #b6b3d4;
   font-size: 14px;
-  background-image: url("https://i.pinimg.com/564x/d2/6a/f4/d26af4e954c30605acbd7d2f486984ed.jpg");
+  /* background-image: url("https://i.pinimg.com/564x/d2/6a/f4/d26af4e954c30605acbd7d2f486984ed.jpg"); */
   position: relative;
   overflow: hidden;
   background-size: 200% 200%;
@@ -11,7 +11,8 @@
 
 .footer_in {
   padding: 15px 0;
-  backdrop-filter: blur(200px);
+  backdrop-filter: blur(500px);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .footer_container {
@@ -52,12 +53,18 @@
   padding: 0;
 }
 
+.footer_navList ul {
+  cursor: pointer;
+}
+
 .footer_navList li {
   margin-bottom: 4px;
+  cursor: pointer;
 }
 
 .footer_navList li:hover {
-  color: #e09eff;
+  color: #8985b8;
+  cursor: pointer;
 }
 
 .footerBottom {

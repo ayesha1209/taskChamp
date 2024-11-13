@@ -1,9 +1,9 @@
 .flip_card {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border-radius: 50%;
-  background-color: rgba(204, 188, 226, 0.6);
-  color: #1f0734;
+  background: linear-gradient(90deg, #9793ba, #b6b3d4);
+  color: #1f0734dc;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -13,20 +13,20 @@
 }
 
 .chat_rec:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #9793ba1d;
 }
 
 .sidebar_inner {
   height: 100%;
   backdrop-filter: blur(500px);
-  background-color: #0801207e;
+  background-color: #08012069;
 }
 
 .sidebar_outer {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  border: 1.5px solid rgb(187, 159, 213);
+  border: 1px solid #9793ba;
   background-position: center;
   /* background: linear-gradient(90deg, #020925de, #2f0e5e, #2f0644e0); */
   background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");

@@ -11,7 +11,7 @@
   background-size: cover;
   position: relative;
   background-position: center;
-  border: 3px solid rgba(210, 179, 255, 0.62);
+  border: 3px solid #9793ba;
   background-color: #4a2b73;
   /* background-image: url("../../public/log5.png"); */
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
@@ -83,7 +83,7 @@
 }
 
 .task_form_button {
-  background-color: rgb(92, 54, 145);
+  background-color: #5c4cb0;
   width: 100%;
   margin-top: 10px;
   height: 40px;
@@ -96,7 +96,7 @@
 }
 
 .task_form_button:hover {
-  background-color: rgb(78, 43, 128);
+  background-color: #5d4cb0b7;
   transform: scale(1.03);
 }
 
