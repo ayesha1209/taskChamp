@@ -1,11 +1,7 @@
 .flip_card {
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(
-    to right,
-    rgba(162, 112, 232, 1),
-    rgba(162, 112, 232, 0.4)
-  );
+  background: linear-gradient(to right, #6c5abe, rgba(162, 112, 232, 0.4));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -22,9 +18,9 @@
 }
 
 .flip_card_comment {
-  width: 1.8rem;
-  height: 1.8rem;
-  background-color: rgba(162, 112, 232, 0.65);
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: #5c4cb0b7;
   border-radius: 50%;
   display: flex;
   margin-right: 2px;
@@ -83,18 +79,18 @@
 }
 
 .comment_input {
-  background-color: rgba(240, 219, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.7);
   border: none;
-  color: #3b1e54;
+  color: #353253;
 }
 .comment_input::placeholder {
-  color: #654984;
+  color: #77739f;
 }
 
 .comment_btn {
-  background-color: #7334aa !important;
+  background-color: #6c5abe !important;
 }
 
 .comment_btn:hover {
-  background-color: #7430b1 !important;
+  background-color: #504388 !important;
 }

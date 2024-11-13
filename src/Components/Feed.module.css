@@ -1,11 +1,7 @@
 .flip_card {
   width: 2rem;
   height: 2rem;
-  background: linear-gradient(
-    to right,
-    rgba(162, 112, 232, 1),
-    rgba(162, 112, 232, 0.4)
-  );
+  background: linear-gradient(to right, #959eff, #6c78ff);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -30,11 +26,13 @@
 }
 
 .quote_outer {
-  background-image: url("https://i.pinimg.com/564x/d2/6a/f4/d26af4e954c30605acbd7d2f486984ed.jpg");
+  background: linear-gradient(90deg, #422c7d, #251e67, #2d247f);
+  /* background-image: url("https://i.pinimg.com/564x/d2/6a/f4/d26af4e954c30605acbd7d2f486984ed.jpg"); */
 }
 
 .quote_inner {
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

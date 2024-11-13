@@ -51,7 +51,7 @@
   height: 1px;
   background-color: #6a3ba3;
   border-radius: 50%;
-  box-shadow: 0 0 150px 150px rgba(111, 6, 210, 0.45);
+  box-shadow: 0 0 150px 150px #604db1;
   pointer-events: none;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -83,7 +83,7 @@
   position: relative;
   padding: 50px 65px;
   overflow: hidden;
-  border: 3px solid rgba(210, 179, 255, 0.6);
+  border: 3px solid #9793ba;
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   perspective: 1000px;
 }

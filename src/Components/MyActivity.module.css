@@ -96,11 +96,11 @@
 }
 
 .heading:nth-child(1) {
-  color: rgb(231, 219, 255);
+  color: white;
 }
 
 .heading:nth-child(2) {
-  color: rgb(181, 145, 213);
+  color: #9793ba;
   animation: animate 5s ease-in-out infinite;
 }
 
@@ -146,7 +146,7 @@
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  border: 3px solid rgba(210, 179, 255, 0.6);
+  border: 3px solid #9793ba;
   margin-bottom: 10px;
   z-index: 10;
   transition: transform 1.5s ease;
@@ -160,4 +160,5 @@
 .userTask {
   font-size: 24px;
   text-align: center;
+  color: #b0adca;
 }

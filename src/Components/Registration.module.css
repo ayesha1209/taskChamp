@@ -27,7 +27,9 @@
   max-width: 500px;
   border-radius: 1.5rem;
   border-radius: 2rem;
+  margin-top: -13px;
   overflow: hidden;
+  scale: 0.9;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -43,9 +45,10 @@
 
 .blur_inner {
   backdrop-filter: blur(220px);
+  background-color: rgba(255, 255, 255, 0.05);
   overflow: hidden;
   width: 100%;
-  padding: 20px 40px;
+  padding: 23px 40px;
 }
 
 .formContent {
@@ -178,11 +181,11 @@
 }
 
 .submitButton {
-  background-color: #622fa2c7;
+  background-color: #5c4cb0b7;
   color: #ffffff;
   padding: 5px;
   font-size: 1rem;
-  margin-top: 20px;
+  margin-top: 40px;
   font-weight: bold;
   width: 100%;
   border-radius: 7px;
@@ -190,7 +193,7 @@
 }
 
 .submitButton:hover {
-  background-color: #8450c4c7;
+  background-color: #5d4cb089;
   transform: scale(1.03);
 }
 
@@ -201,17 +204,7 @@
   border: 2px solid rgba(210, 179, 255, 0.6);
   z-index: 10;
   transition: transform 1.5s ease;
-  /* box-shadow: 0 8px 16px rgba(58, 15, 90, 0.804); */
 }
-
-/* {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 1.5s ease-in-out;
-  box-shadow: 0 8px 16px rgba(2, 0, 4, 0.618);
-} */
 
 .reg_image:hover {
   transform: rotateY(360deg);

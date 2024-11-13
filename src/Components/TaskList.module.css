@@ -11,12 +11,13 @@
   font-weight: 800;
   margin-top: 30px;
   width: 100%;
-  background: linear-gradient(
+  background-color: #aba8c3;
+  /* background: linear-gradient(
     90deg,
     rgb(229, 197, 255),
     rgb(201, 184, 255),
     rgb(205, 198, 255)
-  );
+  ); */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
