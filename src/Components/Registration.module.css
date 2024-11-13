@@ -201,17 +201,7 @@
   border: 2px solid rgba(210, 179, 255, 0.6);
   z-index: 10;
   transition: transform 1.5s ease;
-  /* box-shadow: 0 8px 16px rgba(58, 15, 90, 0.804); */
 }
-
-/* {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 1.5s ease-in-out;
-  box-shadow: 0 8px 16px rgba(2, 0, 4, 0.618);
-} */
 
 .reg_image:hover {
   transform: rotateY(360deg);
