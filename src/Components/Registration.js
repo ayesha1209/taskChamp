@@ -137,7 +137,7 @@ const Registration = () => {
   return (
     <div ref={glowRef} className={`${styles.reg_outer}`}>
       <div
-        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 py-7 ${styles.reg_inner} `}
+        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 ${styles.reg_inner} `}
       >
         <div
           className="glowingEffect"
@@ -161,13 +161,13 @@ const Registration = () => {
         <div ref={cardRef} className={styles.reg_container}>
           <div className={`${styles.blurBackground} w-[100%] md:w-[100%]`}>
             <div className={styles.blur_inner}>
-              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-6">
+              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-3">
                 Create Account
               </h2>
 
               {/* Image Preview */}
               {profileImageUrl && (
-                <div className="mb-4 flex justify-center">
+                <div className="mb-0 flex justify-center">
                   <img
                     src={profileImageUrl}
                     alt="Profile Preview"
@@ -176,7 +176,7 @@ const Registration = () => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2.5">
                 <div>
                   <label className="block text-sm text-[#d1c4db] font-medium mb-1">
                     Username
