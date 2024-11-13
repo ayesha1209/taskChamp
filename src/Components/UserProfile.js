@@ -146,7 +146,7 @@ const UserProfile = () => {
   return (
     <div ref={glowRef} className={`${styles.profile_outer}`}>
       <div
-        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 ${styles.profile_inner} `}
+        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] py-0 px-20 ${styles.profile_inner} `}
       >
         <div
           className="glowingEffect"
@@ -170,7 +170,7 @@ const UserProfile = () => {
         <div ref={cardRef} className={styles.profile_container}>
           <div className={`${styles.blurBackground} w-[100%] md:w-[100%]`}>
             <div className={styles.blur_inner}>
-              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-4">
+              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-3">
                 User Profile
               </h2>
               {imageUrlPreview && (
