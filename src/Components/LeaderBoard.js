@@ -122,7 +122,7 @@ const LeaderBoard = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-white shadow-lg rounded-lg p-4 mb-10">
+              <div className="bg-white shadow-lg rounded-lg p-4 mb-12">
                 <h2 className="text-xl font-bold mb-2">Your Rank : N/A</h2>
                 <p className="text-gray-600 text-sm">
                   Could not find your data in the leaderboard.
@@ -130,7 +130,7 @@ const LeaderBoard = () => {
               </div>
             )}
             {/* Top 3 Contributors */}
-            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-10 mb-9`}>
+            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12`}>
               {users.slice(0, 3).map((user, index) => (
                 <div
                   key={user.userId}
@@ -139,8 +139,8 @@ const LeaderBoard = () => {
               index === 0
                 ? "border-t-4 border-[#9793ba]"
                 : index === 1
-                ? "border-t-4 border-#9793ba"
-                : "border-t-4 border-#9793ba"
+                ? "border-t-4 border-[#9793ba]"
+                : "border-t-4 border-[#9793ba]"
             } ${styles.rank_board_outer}`}
                 >
                   <div className={`${styles.rank_board_inner} p-5`}>
@@ -159,50 +159,60 @@ const LeaderBoard = () => {
               ))}
             </div>
             {/* Leaderboard Table for the rest */}
-            <div className="overflow-y-auto max-h-96">
-              <table className="min-w-full bg-white border-2 border-gray-400 shadow-md rounded-lg overflow-hidden hover:cursor-pointer">
-                <thead className="bg-blue-200 text-sm font-bold">
-                  <tr>
-                    <th className="p-2 text-left">Rank</th>
-                    <th className="p-2 text-left">Username</th>
-                    <th className="p-2 text-left">User ID</th>
-                    <th className="p-2 text-left">Completed Tasks</th>
-                    <th className="p-2 text-left">Score</th>
-                    <th className="p-2 text-left">Reward</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((user, index) => (
-                    <tr
-                      key={user.userId}
-                      className={`hover:bg-gray-200 hover:cursor-pointer text-sm transition-colors duration-300 ${
-                        user.userId === loggedInUserRank?.userId
-                          ? "bg-yellow-100"
-                          : ""
-                      }`} // Highlight logged-in user's row
-                    >
-                      <td className="p-2">{index + 1}</td>
-                      <td className="p-2 hover:scale-105">{user.username}</td>
-                      <td className="p-2">{user.userId}</td>
-                      <td className="p-2">{user.completedTasks}</td>
-                      <td className="p-2">{user.score}</td>
-                      <td className="p-2">{getReward(index)}</td>
+            <div className={styles.leader_board_outer}>
+              <div className={`overflow-y-auto ${styles.leader_board_inner}`}>
+                <table className="min-w-full border-gray-400 shadow-md rounded-lg overflow-hidden hover:cursor-pointer">
+                  <thead
+                    className={`text-md sticky top-0 z-10 font-bold ${styles.table_head}`}
+                  >
+                    <tr>
+                      <th className="px-4 py-5 text-left">Rank</th>
+                      <th className="px-4 text-left">Username</th>
+                      <th className="px-4 text-left">User ID</th>
+                      <th className="px-4 text-left">Completed Tasks</th>
+                      <th className="px-4 text-left">Score</th>
+                      <th className="px-4 text-left">Reward</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {users.map((user, index) => (
+                      <tr
+                        key={user.userId}
+                        className={`hover:bg-g hover:cursor-pointer text-sm duration-300 ${
+                          user.userId === loggedInUserRank?.userId
+                            ? "bg-transparent"
+                            : "bg-transparent"
+                        } ${styles.leader_table_li}`} // Highlight logged-in user's row
+                      >
+                        <td className="px-5 py-3 text-gray-300">{index + 1}</td>
+                        <td className="p-2 text-gray-300 hover:scale-105">
+                          {user.username}
+                        </td>
+                        <td className="p-2 text-gray-300">{user.userId}</td>
+                        <td className="px-16 text-gray-300">
+                          {user.completedTasks}
+                        </td>
+                        <td className="px-6 text-gray-300">{user.score}</td>
+                        <td className="p-2 text-gray-300">
+                          {getReward(index)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
             {/* Display the performance graph */}
-            <h2 className="text-xl text-center mt-10 font-bold">
-              Weekly Performance Comparison (Top 7 Users)
+            <h2 className="text-3xl text-center text-[#9793ba] mt-16 font-bold">
+              Weekly Performance Comparison (Top 10 Users)
             </h2>
             <ResponsiveContainer
               width="100%"
               height={400}
-              className="mt-4 transition-opacity duration-500 opacity-100 hover:opacity-80 text-black"
+              className="mt-4 mb-3 transition-opacity duration-500 opacity-100 hover:opacity-80 text-black"
             >
               <LineChart
-                data={users.slice(0, 5)} // Show only the top 5 users
+                data={users.slice(0, 10)} // Show only the top 5 users
                 margin={{
                   top: 20,
                   right: 30,
@@ -215,11 +225,17 @@ const LeaderBoard = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="score" stroke="#8884d8" />
+                <Line
+                  type="monotone"
+                  dataKey="score"
+                  stroke="#8B5DFF"
+                  strokeWidth={2}
+                />
                 <Line
                   type="monotone"
                   dataKey="completedTasks"
-                  stroke="#82ca9d"
+                  stroke="#9793ba"
+                  strokeWidth={2}
                 />
               </LineChart>
             </ResponsiveContainer>

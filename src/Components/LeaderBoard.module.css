@@ -263,3 +263,41 @@ h2 {
   backdrop-filter: blur(52px);
   width: 100%;
 }
+
+.leader_board_outer {
+  overflow: hidden;
+  border-radius: 20px;
+  background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+}
+
+.leader_board_inner {
+  border-radius: 20px;
+  max-height: 800px;
+  backdrop-filter: blur(500px);
+}
+
+.table_head {
+  position: sticky;
+  top: 0;
+  font-size: 16px;
+  z-index: 1;
+}
+
+.table_head th {
+  color: #170431e9;
+  background-color: #847faa !important;
+}
+
+.leader_table_li {
+  transition: transform 1s ease-in-out;
+}
+
+.leader_table_li:hover {
+  transform: scale(1.02);
+  background-color: #9793ba19;
+}
+
+/* .gold_li {
+  background-color: #9793ba80 !important;
+  color: black;
+} */
