@@ -162,7 +162,10 @@ h2 {
   backdrop-filter: blur(40px);
   overflow-y: auto;
   display: flexbox;
+  display: flex;
+  align-items: center;
   align-content: center;
+  position: relative;
   flex-direction: column;
   align-items: center;
 }
@@ -230,7 +233,7 @@ h2 {
 }
 
 .rank_outer {
-  margin-top: 100px;
+  margin-top: 120px;
   background-position: center;
   border: 2px solid #9793ba;
   width: 100%;
@@ -242,4 +245,21 @@ h2 {
   border-radius: 20px;
   padding: 20px 30px;
   backdrop-filter: blur(180px);
+}
+
+.rank_board_outer {
+  background-color: #04253f;
+  background-position: center;
+  overflow: hidden;
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+}
+
+.rank_board_inner {
+  backdrop-filter: blur(52px);
+  width: 100%;
 }
