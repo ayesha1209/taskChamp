@@ -18,9 +18,9 @@
 }
 
 .flip_card_comment {
-  width: 1.8rem;
-  height: 1.8rem;
-  background-color: rgba(162, 112, 232, 0.65);
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: #5c4cb0b7;
   border-radius: 50%;
   display: flex;
   margin-right: 2px;
