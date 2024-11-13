@@ -139,8 +139,8 @@ const ChatWindow = ({ currentUser, chatPartner }) => {
       </div>
 
       <div>
-        <div className={`p-5`}>
-          <div className="flex items-center gap-2">
+        <div className={`p-1 pb-2`}>
+          <div className="flex items-center p-4 gap-3">
             <button className="text-gray-400 hover:text-gray-600">
               <Paperclip className="h-5 w-5 text-[#8d88b3] hover:text-[#625b97]" />
             </button>

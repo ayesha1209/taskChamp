@@ -38,6 +38,7 @@
 .blur_inner {
   backdrop-filter: blur(220px);
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.03);
   width: 100%;
   padding: 25px 40px;
 }
@@ -108,7 +109,7 @@
 }
 
 .profile_submitButton {
-  background-color: #622fa2c7;
+  background-color: #5c4cb0;
   color: #ffffff;
   padding: 5px;
   font-size: 1rem;
@@ -120,7 +121,7 @@
 }
 
 .profile_submitButton:hover {
-  background-color: #8450c4c7;
+  background-color: #5c4cb0b7;
   transform: scale(1.03);
 }
 
