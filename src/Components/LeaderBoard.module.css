@@ -1,159 +1,245 @@
 .LeaderBoard {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.LoggedInUserRow {
+  background-color: #f0e68c; /* Highlight color */
+  font-weight: bold; /* Make text bold */
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+tr {
+  background-color: #f2f2f2;
+}
+
+td {
+  font-size: 1rem;
+  color: #555;
+}
+
+td:nth-child(1) {
+  font-weight: bold;
+}
+
+.Reward {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.Gold {
+  color: #ffd700; /* Gold Medal Color */
+}
+
+.Silver {
+  color: #c0c0c0; /* Silver Medal Color */
+}
+
+.Bronze {
+  color: #cd7f32; /* Bronze Medal Color */
+}
+
+.GraphContainer {
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ddd;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.ChartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserLegend {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.UserLegend span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.User1Color {
+  color: #4caf50; /* Green */
+}
+
+.User2Color {
+  color: #ff6347; /* Tomato Red */
+}
+
+.User3Color {
+  color: #000912; /* Dodger Blue */
+}
+
+.User4Color {
+  color: #ff8c00; /* Dark Orange */
+}
+
+.User5Color {
+  color: #800080; /* Purple */
+}
+
+.User6Color {
+  color: #20b2aa; /* Light Sea Green */
+}
+
+.User7Color {
+  color: #ff1493; /* Deep Pink */
+}
+
+.User8Color {
+  color: #8b4513; /* Saddle Brown */
+}
+
+.User9Color {
+  color: #04253f; /* Steel Blue */
+}
+
+.User10Color {
+  color: #ff4500; /* Orange Red */
+}
+
+.ChartTooltip {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  color: #333;
+}
+
+.ChartLine {
+  stroke-width: 2px;
+}
+
+.leader_outer {
+  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+}
+
+.leader_inner {
+  backdrop-filter: blur(40px);
+  overflow-y: auto;
+  display: flexbox;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  width: 20%;
+  height: 100vh;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+.heading {
+  font-size: 50px;
+  font-weight: 800;
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  background-color: white;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.heading:nth-child(1) {
+  color: white;
+}
+
+.heading:nth-child(2) {
+  color: #9793ba;
+  animation: animate 5s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      15% 44%,
+      32% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
   }
 
-  
-  .LoggedInUserRow {
-    background-color: #f0e68c; /* Highlight color */
-    font-weight: bold;          /* Make text bold */
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      16% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
   }
-  
-  
-  h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  tr {
-    background-color: #f2f2f2;
-  }
-  
-  td {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  td:nth-child(1) {
-    font-weight: bold;
-  }
-  
- 
-  .Reward {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .Gold {
-    color: #FFD700; /* Gold Medal Color */
-  }
-  
-  .Silver {
-    color: #C0C0C0; /* Silver Medal Color */
-  }
-  
-  .Bronze {
-    color: #CD7F32; /* Bronze Medal Color */
-  }
+}
 
-  .GraphContainer {
-    width: 80%;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ddd;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .ChartWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .UserLegend {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-  }
-  
-  .UserLegend span {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
-  .User1Color {
-    color: #4CAF50; /* Green */
-  }
-  
-  .User2Color {
-    color: #FF6347; /* Tomato Red */
-  }
-  
-  .User3Color {
-    color: #000912; /* Dodger Blue */
-  }
-  
-  .User4Color {
-    color: #FF8C00; /* Dark Orange */
-  }
-  
-  .User5Color {
-    color: #800080; /* Purple */
-  }
-  
-  .User6Color {
-    color: #20B2AA; /* Light Sea Green */
-  }
-  
-  .User7Color {
-    color: #FF1493; /* Deep Pink */
-  }
-  
-  .User8Color {
-    color: #8B4513; /* Saddle Brown */
-  }
-  
-  .User9Color {
-    color: #04253f; /* Steel Blue */
-  }
-  
-  .User10Color {
-    color: #FF4500; /* Orange Red */
-  }
-  
-  .ChartTooltip {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    color: #333;
-  }
-  
-  .ChartLine {
-    stroke-width: 2px;
-  }
-  
-  
+.rank_outer {
+  margin-top: 100px;
+  background-position: center;
+  border: 2px solid #9793ba;
+  width: 100%;
+  border-radius: 20px;
+  background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+}
+
+.rank_inner {
+  border-radius: 20px;
+  padding: 20px 30px;
+  backdrop-filter: blur(180px);
+}
