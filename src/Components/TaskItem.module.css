@@ -72,15 +72,15 @@
 
 .task_item.done {
   text-decoration: line-through;
-  background-color: rgba(26, 4, 45, 0.376);
+  background-color: rgba(26, 4, 45, 0.2);
   text-decoration-thickness: 2px;
-  text-decoration-color: #c4afe164;
+  text-decoration-color: #c4afe1a0;
 }
 
 .done p,
 .done h3,
 .done label {
-  color: black !important;
+  color: rgb(39, 1, 73) !important;
 }
 
 .task_item.done::before {
@@ -98,7 +98,7 @@
 }
 
 .done:hover {
-  border: 3px solid #f3f1ff4b;
+  border: 3px solid #f3f1ff40;
   transform: scale(1.02);
 }
 
@@ -109,12 +109,12 @@
 .done button.delete,
 .done button.update {
   color: white !important;
-  background-color: rgba(27, 4, 49, 0.72) !important;
+  background-color: rgba(27, 4, 49, 0.491) !important;
 }
 
 .done button.delete:hover,
 .done button.update:hover {
-  background-color: rgba(27, 4, 49, 0.876) !important;
+  background-color: rgba(27, 4, 49, 0.6) !important;
 }
 
 .task_item h3 {
