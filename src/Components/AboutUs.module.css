@@ -1,56 +1,210 @@
-.about-container {
-  font-family: Arial, sans-serif;
-  color: #333;
-  padding: 20px;
-  max-width: 1000px;
+.about_us_container {
+  width: 100%;
+  margin: 0px auto;
+  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.about_header {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  padding: 65px 20px;
+  padding-top: 30px;
+}
+.member_photo {
+  width: 125px;
+  height: 125px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-color: black;
+  border: 2px solid #9793ba;
+  transition: transform 1s ease-in-out;
   margin: 0 auto;
 }
 
-.about-header {
+.member_photo:hover {
+  transform: rotateY(180deg);
+}
+
+.about_header h1 {
+  font-size: 45px;
+  font-weight: 800;
+  position: absolute;
   text-align: center;
-  margin-bottom: 40px;
+  background-color: white;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.mission-section,
-.vision-section,
-.history-section,
-.team-section,
-.contact-section {
-  margin-bottom: 40px;
+.about_header h1:nth-child(1) {
+  color: white;
 }
 
-.about-h2{
-  color: #2c3e50;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #3498db;
-  display: inline-block;
-  padding-bottom: 5px;
+.about_header h1:nth-child(2) {
+  color: #9793ba;
+  animation: animate 5s ease-in-out infinite;
 }
 
-.team-grid {
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      15% 44%,
+      32% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      16% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+.about_header p {
+  font-size: 22px;
+  margin-top: 100px;
+  color: #9793ba;
+}
+
+.mission,
+.vision {
+  margin: 0px 60px;
+  margin-bottom: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left: 6px solid #9793ba;
+  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+}
+
+.mission h2,
+.vision h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.mission p,
+.vision p {
+  margin-top: 10px;
+  color: #b3b0cd;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.vision_inner,
+.mission_inner {
+  backdrop-filter: blur(220px);
+  padding: 30px 30px;
+  padding-bottom: 50px;
+}
+
+.team {
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background-size: cover;
+  border: 1.5px solid #9793ba;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+  margin-bottom: 80px;
+}
+
+.team_inner {
+  padding: 30px 0px;
+  padding-bottom: 50px;
+  backdrop-filter: blur(250px);
+}
+
+.team h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.team_members {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 25px;
 }
 
-.team-member {
-  text-align: center;
-  width: 200px;
-  margin: 20px;
+.member_card {
+  width: 195px;
+  padding: 25px 0px;
+  border-radius: 10px;
+  background: #d7b7ff35;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  transition: transform 0.8s ease;
 }
 
-.team-member img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+.member_card:hover {
+  transform: translateY(-12px);
 }
 
-.contact-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-section li {
+.member_card h3 {
+  color: #9793ba;
+  font-weight: 700;
+  font-size: 18px;
   margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.member_card p {
+  font-size: 16px;
+  margin-top: 5px;
+  color: white;
+}
+
+.contact {
+  padding: 40px 30px;
+  background: #f9fafb;
+  border-top: 4px solid white;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #3b82f6;
+}
+
+.contact p {
+  font-size: 18px;
+
+  margin: 8px 0;
+}
+
+.about_inner {
+  margin-left: 250px;
+  backdrop-filter: blur(40px);
+  padding: 10px 30px;
 }

@@ -41,7 +41,9 @@ const AddPost = () => {
 
   return (
     <div className="rounded-xl shadow-sm p-6 max-w-2xl mx-auto mb-1">
-      <h2 className="text-2xl font-semibold mb-4 text-white">Create Post</h2>
+      <h2 className="text-2xl font-semibold mb-4 float-left text-white">
+        Create Post
+      </h2>
       <form onSubmit={handlePostSubmit} className="space-y-3">
         <textarea
           value={newPost}

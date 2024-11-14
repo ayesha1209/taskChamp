@@ -1,7 +1,7 @@
 .flip_card {
   width: 2rem;
   height: 2rem;
-  background: linear-gradient(to right, #959eff, #6c78ff);
+  background: linear-gradient(to right, #959effcd, #6c78ff);
   border-radius: 50%;
   display: flex;
   align-items: center;

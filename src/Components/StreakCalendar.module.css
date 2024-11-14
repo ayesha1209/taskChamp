@@ -51,7 +51,7 @@
   height: 1px;
   background-color: #6a3ba3;
   border-radius: 50%;
-  box-shadow: 0 0 150px 150px #604db1;
+  box-shadow: 0 0 130px 130px #5f4db18f;
   pointer-events: none;
   z-index: -1;
   transform: translate(-50%, -50%);

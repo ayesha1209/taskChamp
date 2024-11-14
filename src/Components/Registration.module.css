@@ -184,9 +184,8 @@
   background-color: #5c4cb0b7;
   color: #ffffff;
   padding: 5px;
-  font-size: 1rem;
+  font-size: 16px;
   margin-top: 40px;
-  font-weight: bold;
   width: 100%;
   border-radius: 7px;
   transition: background-color 0.6s ease, transform 0.6s ease;
