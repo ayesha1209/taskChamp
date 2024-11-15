@@ -5,6 +5,7 @@ import useTiltEffect from "./useTitleEffect";
 import { useState, useEffect, useRef } from "react";
 import { User } from "../models/User"; // Adjust import path as needed
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { Task } from "../models/Task";
 
 const Features = () => {
   const [user, setUser] = useState(null);
@@ -15,6 +16,68 @@ const Features = () => {
   const ftRef4 = useTiltEffect();
   const ftRef5 = useTiltEffect();
   const ftRef6 = useTiltEffect();
+  const penRef = useTiltEffect();
+  const [taskNames, setTaskNames] = useState([]);
+
+  useEffect(() => {
+    const fetchDashboardTasks = async () => {
+      const dateTask = new Date()
+        .toLocaleDateString("en-GB")
+        .replace(/\//g, "-");
+      const userId = localStorage.getItem("userId");
+      const pendingTaskNames = await fetchPendingTaskNames(userId, dateTask);
+      console.log("Pending Task Names:", pendingTaskNames);
+      // Use the task names in your dashboard logic
+    };
+
+    fetchDashboardTasks();
+  }, []);
+  const fetchPendingTaskNames = async (userId, dateTask) => {
+    try {
+      const user = await User.fetch(userId);
+      console.log("Fetched User Data:", user);
+
+      const allTasks = Object.keys(user.tasks).map((taskId) => {
+        const taskData = user.tasks[taskId];
+        return new Task(
+          taskId,
+          taskData.date,
+          taskData.taskname,
+          taskData.level,
+          taskData.is_done,
+          taskData.priority
+        );
+      });
+
+      console.log("All Tasks:", allTasks);
+
+      const pendingTasks = allTasks.filter((task) => !task.is_done);
+      console.log("Pending Tasks:", pendingTasks);
+
+      const todayTasks = pendingTasks.filter((task) => task.date === dateTask);
+      console.log("Today's Tasks:", todayTasks);
+
+      todayTasks.sort((a, b) => a.priority - b.priority);
+      pendingTasks.sort((a, b) => {
+        if (a.date === b.date) {
+          return a.priority - b.priority;
+        }
+        return new Date(a.date) - new Date(b.date);
+      });
+
+      const finalTasks =
+        todayTasks.length >= 5 ? todayTasks : pendingTasks.slice(0, 5);
+
+      console.log("Final Tasks:", finalTasks);
+
+      const taskNames = finalTasks.map((task) => task.taskname);
+      setTaskNames(taskNames); // Update state
+      return taskNames;
+    } catch (error) {
+      console.error("Error fetching pending task names:", error);
+      return [];
+    }
+  };
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -58,8 +121,28 @@ const Features = () => {
               />
             )}
             <h2 className={styles.userTask}>Hey {user.username} !</h2>
+            <div className={styles.featurePara}>
+              <p>
+                Explore and manage your tasks, track progress, and stay
+                motivated!
+              </p>
+            </div>
           </div>
         )}
+        <div ref={penRef} className={styles.currentTaskOuter}>
+          <div>
+            <h3>Your Pending Tasks</h3>
+            {taskNames.length > 0 ? (
+              <ul>
+                {taskNames.map((name, index) => (
+                  <li key={index}>{name}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No pending tasks available</p>
+            )}
+          </div>
+        </div>
         <div className={styles.featureListOuter}>
           <div className={styles.featureList}>
             <h3 className={styles.featureListHead}>Tasky Features</h3>
