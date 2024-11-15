@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import StreakCalendar from "./StreakCalendar";
 import Navbar from "./Navbar";
 import styles from "./MyActivity.module.css";
 import Footer from "./Footer";
 import { User } from "../models/User"; // Adjust import path as needed
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const MyActivity = () => {
   const [user, setUser] = useState(null);

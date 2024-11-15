@@ -11,8 +11,8 @@ const useTiltEffect = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 4;
-      const rotateY = (x / width - 0.5) * -4;
+      const rotateX = (y / height - 0.5) * 10;
+      const rotateY = (x / width - 0.5) * -10;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };

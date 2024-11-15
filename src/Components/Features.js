@@ -1,9 +1,43 @@
-import React from "react";
 import styles from "./Features.module.css"; // CSS for styling
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import useTiltEffect from "./useTitleEffect";
+import { useState, useEffect, useRef } from "react";
+import { User } from "../models/User"; // Adjust import path as needed
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const Features = () => {
+  const [user, setUser] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+  const ftRef1 = useTiltEffect();
+  const ftRef2 = useTiltEffect();
+  const ftRef3 = useTiltEffect();
+  const ftRef4 = useTiltEffect();
+  const ftRef5 = useTiltEffect();
+  const ftRef6 = useTiltEffect();
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const userId = localStorage.getItem("userId");
+      const fetchedUser = await User.fetch(userId);
+      setUser(fetchedUser);
+
+      if (fetchedUser.imageUrl) {
+        // Fetch the download URL for the image
+        const storage = getStorage();
+        const storageRef = ref(storage, fetchedUser.imageUrl);
+        try {
+          const url = await getDownloadURL(storageRef);
+          setImageUrl(url); // Set the image URL state
+        } catch (error) {
+          console.error("Error fetching image URL:", error);
+        }
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
+
   return (
     <div className={styles.feature_outer}>
       <Navbar></Navbar>
@@ -14,11 +48,23 @@ const Features = () => {
         </div>
         <br></br>
         <br></br>
+        {user && (
+          <div className={styles.userGreeting}>
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                alt="Profile"
+                className={styles.profileImage}
+              />
+            )}
+            <h2 className={styles.userTask}>Hey {user.username} !</h2>
+          </div>
+        )}
         <div className={styles.featureListOuter}>
           <div className={styles.featureList}>
             <h3 className={styles.featureListHead}>Tasky Features</h3>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef1}>
                 <h3>
                   📅 <br />
                   Task Organization
@@ -30,7 +76,7 @@ const Features = () => {
               </div>
             </div>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef2}>
                 <h3>
                   🔥 <br />
                   Streak Calendar
@@ -42,19 +88,19 @@ const Features = () => {
               </div>
             </div>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef3}>
                 <h3>
                   📢
-                  <br /> Post/Feed
+                  <br /> Post / Feed
                 </h3>
                 <p>
                   Share your achievements and spread your progress with the
-                  community through our interactive feed!
+                  community through our feed!
                 </p>
               </div>
             </div>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef4}>
                 <h3>
                   🏆 <br />
                   Leaderboard
@@ -66,7 +112,7 @@ const Features = () => {
               </div>
             </div>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef5}>
                 <h3>
                   📈 <br />
                   Graphical Insights
@@ -78,7 +124,7 @@ const Features = () => {
               </div>
             </div>
             <div className={`${styles.featureItem}`}>
-              <div>
+              <div ref={ftRef6}>
                 <h3>
                   💬
                   <br /> Chat Board
