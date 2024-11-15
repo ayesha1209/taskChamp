@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard" className={styles.nav_link}>
+              <Link to="/Feature" className={styles.nav_link}>
                 Dashboard
               </Link>
             </li>
@@ -19,7 +19,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/LeaderBoard" className={styles.nav_link}>
-                Leadership Board
+                Leader Board
               </Link>
             </li>
 

@@ -12,6 +12,7 @@ import Login from "./Components/Login";
 import AboutUs from "./Components/AboutUs";
 import Feed from "./Components/Feed";
 import Chat from "./Components/Chat";
+import Feature from "./Components/Features";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/Feed" element={<Feed />} />
           <Route path="/Chat" element={<Chat />} />
+          <Route path="/Feature" element={<Feature />} />
         </Routes>
       </BrowserRouter>
       <SplashScreen />

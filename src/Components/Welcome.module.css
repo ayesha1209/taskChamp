@@ -1,0 +1,101 @@
+.welcomeContainer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px;
+    min-height: 100vh; 
+    background-color: #F4EFEA; 
+    position: relative;
+}
+
+.textContainer {
+    flex: 2; 
+    padding-right: 20px; 
+    color: #2C3A47; 
+    z-index: 2; 
+}
+
+.imageContainer {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; 
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.welcomeImage {
+    width: 50%; 
+    height: auto; 
+    object-fit: contain; 
+    opacity: 0.9; 
+}
+
+.title {
+  font-size: 3.5rem; 
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  color: #2C3A47; 
+  animation: typing 2s steps(40, end); 
+  white-space: nowrap; 
+  overflow: hidden; 
+}
+
+
+
+
+
+.taskChamp {
+    color: #F2994A; 
+}
+
+.description {
+    font-size: 1.5rem; 
+    max-width: 600px; 
+    margin-bottom: 40px;
+    color: #61768b; 
+    animation: fadeIn 3s ease-in-out;
+}
+
+.callToAction {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #F2994A; 
+    animation: fadeIn 3.5s ease-in-out;
+}
+
+.ctaButton {
+    background-color: #9B51E0; 
+    color: #FFFFFF; 
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: #F2994A; }
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

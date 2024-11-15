@@ -205,6 +205,6 @@
 
 .about_inner {
   margin-left: 250px;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(60px);
   padding: 10px 30px;
 }

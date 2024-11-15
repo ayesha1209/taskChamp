@@ -65,7 +65,7 @@
   width: 80%;
   margin-left: 20%;
   padding-bottom: 50px;
-  backdrop-filter: blur(60px);
+  backdrop-filter: blur(80px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
