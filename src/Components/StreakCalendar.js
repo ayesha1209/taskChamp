@@ -170,7 +170,16 @@ const StreakCalendar = () => {
 
   return (
     <div className={styles.streak_calendar_container}>
-      <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
+      <div className={styles.taskForm}>
+        <h2>Add tasks in a snap!</h2>
+        <div className={styles.centeredImage}>
+          <img src="taskForm.svg"></img>
+        </div>
+        <div className={styles.taskFormPara}>
+          <p>Let’s get things done!</p>
+        </div>
+        <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
+      </div>
       <br />
       <br />
       <br></br>

@@ -227,7 +227,9 @@ const MyActivity = () => {
                         className={styles.profileImage}
                       />
                     )}
-                    <h2 className={styles.userTask}>{user.username}'s Task</h2>
+                    <h2 className={styles.userTask}>
+                      {user.username}'s Activity
+                    </h2>
                   </div>
                 )}
                 <StreakCalendar />

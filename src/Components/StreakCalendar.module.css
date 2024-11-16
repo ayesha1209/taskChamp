@@ -185,3 +185,51 @@ body {
 .streak_image:hover {
   transform: rotateY(360deg);
 }
+
+.taskForm {
+  background-color: #9793ba1c;
+  border-radius: 15px;
+  border: 2px solid #9793ba;
+  padding: 40px;
+  margin: 0px 40px;
+}
+
+.taskForm h2 {
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.taskFormPara {
+  margin: 30px 0;
+  font-size: 17px;
+  text-align: center;
+}
+
+.centeredImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 110px;
+}
+
+.centeredImage img {
+  height: 120px;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

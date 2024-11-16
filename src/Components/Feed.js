@@ -140,7 +140,7 @@ const Feed = () => {
               {/* Top Streaks Section */}
               <div ref={card_top_ref} className={`${styles.top_streak_outer}`}>
                 <div className={styles.top_streak_inner}>
-                  <h3 className="text-3xl font-semibold mb-4 ml-2 text-white inline-flex items-center">
+                  <h3 className="text-2xl font-semibold mb-4 ml-2 text-white inline-flex items-center">
                     Top Streaks
                     <img
                       src="fire.svg"
@@ -184,9 +184,19 @@ const Feed = () => {
             </div>
           )}
 
-          <div className={`flex-grow`}>
+          <div className={`flex-grow ${styles.postListOuter}`}>
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-white">Feed</h2>
+              <h2 className="text-4xl font-bold mb-6 text-white">Feed</h2>
+              <div className={styles.centerImage}>
+                <img src="/postlist.svg"></img>
+              </div>
+              <p className={styles.postListPara}>
+                Our keeps you updated with posts from the community and trends.
+              </p>
+              <p className={styles.postListPara}>
+                Interact through likes, comments, and shares to stay engaged and
+                inspired!
+              </p>
               <PostList
                 posts={posts}
                 user={{ uid: userId, displayName: username }}

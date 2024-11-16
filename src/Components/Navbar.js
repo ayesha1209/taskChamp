@@ -25,7 +25,7 @@ const Navbar = () => {
 
             <li>
               <Link to="/Chat" className={styles.nav_link}>
-                Chat
+                Conversations
               </Link>
             </li>
             <li>
