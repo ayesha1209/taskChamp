@@ -1,9 +1,9 @@
-import styles from "./Features.module.css"; // CSS for styling
+import styles from "./Features.module.css"; 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import useTiltEffect from "./useTitleEffect";
 import { useState, useEffect, useRef } from "react";
-import { User } from "../models/User"; // Adjust import path as needed
+import { User } from "../models/User"; 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Task } from "../models/Task";
 
@@ -27,7 +27,6 @@ const Features = () => {
       const userId = localStorage.getItem("userId");
       const pendingTaskNames = await fetchPendingTaskNames(userId, dateTask);
       console.log("Pending Task Names:", pendingTaskNames);
-      // Use the task names in your dashboard logic
     };
 
     fetchDashboardTasks();
@@ -142,6 +141,9 @@ const Features = () => {
               <p>No pending tasks available</p>
             )}
           </div>
+        </div>
+        <div className={styles.centerImage}>
+          <img src="/dashboard.svg"></img>
         </div>
         <div className={styles.featureListOuter}>
           <div className={styles.featureList}>

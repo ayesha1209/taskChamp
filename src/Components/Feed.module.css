@@ -159,7 +159,7 @@
 }
 
 .centerImage img {
-  height: 350px;
+  height: 300px;
 }
 
 .hubIntro {
@@ -189,7 +189,7 @@
 }
 
 .postListOuter img {
-  height: 250px;
+  height: 200px;
 }
 
 .postListPara {
@@ -201,4 +201,50 @@
 
 .postListPara:nth-child(4) {
   margin-bottom: 40px;
+}
+
+.userGreeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 170px;
+  height: 170px;
+  margin-top: 40px;
+  border-radius: 50%;
+  border: 3px solid #9793ba;
+  margin-bottom: 10px;
+  z-index: 10;
+  transition: transform 1.5s ease;
+  /* box-shadow: 0 8px 16px rgba(58, 15, 90, 0.804); */
+}
+
+.profileImage:hover {
+  transform: rotateY(360deg);
+}
+
+.userTask {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  color: #b0adca;
+}
+
+.featurePara {
+  color: #9793ba;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.welcomeHead {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: white;
 }

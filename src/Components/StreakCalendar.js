@@ -176,6 +176,9 @@ const StreakCalendar = () => {
           <img src="taskForm.svg"></img>
         </div>
         <div className={styles.taskFormPara}>
+          <p>
+            Tag them as Easy, Medium, or Hard to keep your workload balanced.
+          </p>
           <p>Let’s get things done!</p>
         </div>
         <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />

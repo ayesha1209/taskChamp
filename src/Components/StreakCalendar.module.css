@@ -51,7 +51,7 @@
   height: 1px;
   background-color: #6a3ba3;
   border-radius: 50%;
-  box-shadow: 0 0 130px 130px #5f4db18f;
+  box-shadow: 0 0 130px 130px #5f4db144;
   pointer-events: none;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -78,7 +78,8 @@
 }
 
 .streak_calendar_table {
-  backdrop-filter: blur(130px);
+  backdrop-filter: blur(150px);
+  background-color: #1a093341;
   border-radius: 20px;
   position: relative;
   padding: 50px 65px;
@@ -94,7 +95,7 @@
 
 .streak_calendar_day {
   padding: 10px 8px;
-  background-color: #f0f0ffd5;
+  background-color: #bdbad4cd;
   color: black;
   text-align: center;
   opacity: 0.85;
@@ -105,7 +106,7 @@
 
 .streak_calendar_day:hover {
   transform: scale(1.02);
-  background-color: #ffffff;
+  background-color: #dcd8f1;
   box-shadow: 0 4px 12px black;
 }
 
@@ -158,17 +159,17 @@ body {
 }
 
 .prev_button {
-  background-image: url("/public/prev.svg");
+  background-image: url("/public/left.svg");
   float: left;
 }
 
 .next_button {
-  background-image: url("/public/next.svg");
+  background-image: url("/public/right.svg");
   float: right;
 }
 
 .selected_day {
-  background-color: white !important;
+  background-color: #dcd8f1 !important;
   color: black;
 }
 

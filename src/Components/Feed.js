@@ -7,6 +7,12 @@ import styles from "./Feed.module.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import useTitleEffect from "./useTitleEffect";
+import { User } from "../models/User";
+import {
+  getStorage,
+  ref as storageRef,
+  getDownloadURL,
+} from "firebase/storage";
 
 const motivationalQuotes = [
   "Every moment is a fresh beginning.",
@@ -16,6 +22,8 @@ const motivationalQuotes = [
 ];
 
 const Feed = () => {
+  const [user, setUser] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState("");
   const [quote, setQuote] = useState("");
@@ -38,6 +46,28 @@ const Feed = () => {
       return null;
     }
   };
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const userId = localStorage.getItem("userId");
+      const fetchedUser = await User.fetch(userId);
+      setUser(fetchedUser);
+
+      if (fetchedUser.imageUrl) {
+        // Fetch the download URL for the image
+        const storage = getStorage();
+        const storRef = storageRef(storage, fetchedUser.imageUrl);
+        try {
+          const url = await getDownloadURL(storRef);
+          setImageUrl(url); // Set the image URL state
+        } catch (error) {
+          console.error("Error fetching image URL:", error);
+        }
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
 
   const fetchTopStreaks = async () => {
     const streaksRef = ref(realDb, "users");
@@ -113,7 +143,25 @@ const Feed = () => {
             <h1>Community Hub</h1>
             <h1>Community Hub</h1>
           </div>
+          {user && (
+            <div className={styles.userGreeting}>
+              {imageUrl && (
+                <img
+                  src={imageUrl}
+                  alt="Profile"
+                  className={styles.profileImage}
+                />
+              )}
+              <h2 className={styles.userTask}>{user.username} Here !</h2>
+              <div className={styles.featurePara}>
+                <p>{quote}</p>
+              </div>
+            </div>
+          )}
           <div className={styles.hubIntro}>
+            <h3 className={styles.welcomeHead}>
+              Welcome to the Community Hub!
+            </h3>
             <div className={styles.centerImage}>
               <img src="/feed.svg"></img>
             </div>
@@ -180,13 +228,15 @@ const Feed = () => {
           ) : (
             <div className={`text-center py-56 ${styles.feed_inner_load}`}>
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
-              <p className="text-gray-600 mt-4">Loading your feed...</p>
+              <p className="text-gray-600 mt-4">Loading your Feed...</p>
             </div>
           )}
 
           <div className={`flex-grow ${styles.postListOuter}`}>
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-white">Feed</h2>
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Dive into the Feed!
+              </h2>
               <div className={styles.centerImage}>
                 <img src="/postlist.svg"></img>
               </div>

@@ -294,3 +294,9 @@
   background-color: #b0adca3a;
 }
 
+.centerImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
