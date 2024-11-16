@@ -121,8 +121,8 @@
 .vision_inner,
 .mission_inner {
   backdrop-filter: blur(220px);
-  padding: 30px 30px;
-  padding-bottom: 50px;
+  padding: 20px 30px;
+  padding-bottom: 30px;
 }
 
 .team {
@@ -134,7 +134,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .team_inner {
@@ -207,4 +207,11 @@
   margin-left: 250px;
   backdrop-filter: blur(60px);
   padding: 10px 30px;
+}
+
+.centeredImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }

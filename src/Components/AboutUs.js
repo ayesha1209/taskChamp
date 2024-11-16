@@ -45,7 +45,9 @@ const AboutUs = () => {
             </p>
           </div>
         </section>
-
+        <div className={styles.centeredImage}>
+          <img src="/about.svg"></img>
+        </div>
         <section className={styles.team}>
           <div className={styles.team_inner}>
             <h2>Meet Our Team</h2>
@@ -87,15 +89,8 @@ const AboutUs = () => {
                 <p>Developer</p>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </section>
-
-        {/* <section className={styles.contact}>
-          <h2>Get in Touch</h2>
-          <p>Email: support@taskchamp.com</p>
-          <p>Phone: +123 456 7890</p>
-          <p>Address: Faculty of Technology and Engineering, MSU Baroda</p>
-        </section> */}
       </div>
       <Footer></Footer>
     </div>

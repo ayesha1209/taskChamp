@@ -6,6 +6,7 @@ import PostList from "./PostList";
 import styles from "./Feed.module.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import useTitleEffect from "./useTitleEffect";
 
 const motivationalQuotes = [
   "Every moment is a fresh beginning.",
@@ -20,69 +21,8 @@ const Feed = () => {
   const [quote, setQuote] = useState("");
   const [topStreaks, setTopStreaks] = useState([]);
   const userId = localStorage.getItem("userId");
-  const cardRef = useRef(null);
-  const card_top_ref = useRef(null);
-
-  useEffect(() => {
-    const card = cardRef.current;
-
-    const handleMouseMove = (e) => {
-      const { width, height, left, top } = card.getBoundingClientRect();
-      const x = e.clientX - left;
-      const y = e.clientY - top;
-
-      const rotateX = (y / height - 0.5) * 20;
-      const rotateY = (x / width - 0.5) * -20;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
-
-    const handleMouseLeave = () => {
-      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
-    };
-
-    if (card) {
-      card.addEventListener("mousemove", handleMouseMove);
-      card.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      if (card) {
-        card.removeEventListener("mousemove", handleMouseMove);
-        card.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const card_top = card_top_ref.current;
-    const handleMouseMove = (e) => {
-      const { width, height, left, top } = card_top.getBoundingClientRect();
-      const x = e.clientX - left;
-      const y = e.clientY - top;
-
-      const rotateX = (y / height - 0.5) * 20;
-      const rotateY = (x / width - 0.5) * -20;
-
-      card_top.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
-
-    const handleMouseLeave = () => {
-      card_top.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
-    };
-
-    if (card_top) {
-      card_top.addEventListener("mousemove", handleMouseMove);
-      card_top.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    // return () => {
-    //   if (card_top) {
-    //     card_top.removeEventListener("mousemove", handleMouseMove);
-    //     card_top.removeEventListener("mouseleave", handleMouseLeave);
-    //   }
-    // };
-  }, []);
+  const cardRef = useTitleEffect();
+  const card_top_ref = useTitleEffect();
 
   const fetchUsername = async (userId) => {
     try {
@@ -158,84 +98,81 @@ const Feed = () => {
       <Navbar></Navbar>
       <div className="min-h-screen" style={{ marginLeft: "250px" }}>
         {/* Quote Header */}
-        <div className={`text-white ${styles.quote_outer}`}>
+
+        {/* <div className={`text-white ${styles.quote_outer}`}>
           <div className={`max-w-6xl py-4 mx-auto px-4 ${styles.quote_inner}`}>
             <p className="text-xl italic font-semibold font-light text-center">
               {quote}
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Content */}
-        <div className={`max-w-6xl mx-auto px-12 py-8 ${styles.feed_inner}`}>
+        <div className={`max-w-6xl mx-auto px-20 py-8 ${styles.feed_inner}`}>
+          <div className={styles.communityHead}>
+            <h1>Community Hub</h1>
+            <h1>Community Hub</h1>
+          </div>
+          <div className={styles.hubIntro}>
+            <div className={styles.centerImage}>
+              <img src="/feed.svg"></img>
+            </div>
+            <p>Connect, collaborate, and share tips with fellow Tasky users.</p>
+            <p> Together, let’s simplify task management and achieve more!</p>
+          </div>
+          <br></br>
           {userId && username ? (
-            <div className="flex gap-8">
+            <div className="flex gap-14">
               {/* Left Column - Posts */}
-              <div className={`flex-grow max-w-3xl`}>
-                <div>
-                  <h2 className="text-2xl font-bold mb-6 text-gray-800"></h2>
-                  <PostList
-                    posts={posts}
-                    user={{ uid: userId, displayName: username }}
-                  />
-                </div>
-              </div>
 
-              {/* Right Column - Add Post & Streaks */}
-              <div className="w-80 space-y-6">
+              <div>
                 {/* Add Post Section */}
                 <div
                   ref={cardRef}
-                  className={`bg-white rounded-xl shadow-sm ${styles.post_form_outer}`}
+                  className={`bg-white shadow-sm ${styles.post_form_outer}`}
                 >
-                  <div className={`${styles.post_form_inner} rounded-xl`}>
+                  <div className={`${styles.post_form_inner}`}>
                     <AddPost />
                   </div>
                 </div>
+              </div>
+              {/* Right Column - Add Post & Streaks */}
+              {/* Top Streaks Section */}
+              <div ref={card_top_ref} className={`${styles.top_streak_outer}`}>
+                <div className={styles.top_streak_inner}>
+                  <h3 className="text-3xl font-semibold mb-4 ml-2 text-white inline-flex items-center">
+                    Top Streaks
+                    <img
+                      src="fire.svg"
+                      className="h-8 w-8 ml-2"
+                      alt="fire icon"
+                    />
+                  </h3>
 
-                {/* Top Streaks Section */}
-                <div
-                  ref={card_top_ref}
-                  className={`${styles.top_streak_outer}`}
-                >
-                  <div className={styles.top_streak_inner}>
-                    <h3 className="text-3xl font-semibold mb-4 ml-2 text-white inline-flex items-center">
-                      Top Streaks{" "}
-                      <img
-                        src="fire.svg"
-                        className="h-8 w-8 ml-2"
-                        alt="fire icon"
-                      />
-                    </h3>
-
-                    <div className="space-y-3">
-                      {topStreaks.map((user, index) => (
-                        <div
-                          key={index}
-                          className={`flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg ${styles.top_li}`}
-                        >
-                          <div className="flex items-center space-x-3">
-                            <div className={styles.flip_card}>
-                              {user.username.charAt(0).toUpperCase()}
-                            </div>
-                            <span className="font-medium text-gray-400">
-                              {user.username}
-                            </span>
+                  <div className="space-y-3">
+                    {topStreaks.map((user, index) => (
+                      <div
+                        key={index}
+                        className={`flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg ${styles.top_li}`}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className={styles.flip_card}>
+                            {user.username.charAt(0).toUpperCase()}
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <span className="text-white font-semibold">
-                              {user.streak}
-                            </span>
-                            <span className="text-orange-500">
-                              <img
-                                src="fire2.svg"
-                                className="h-5 w-5 ml-1"
-                              ></img>
-                            </span>
-                          </div>
+                          <span className="font-medium text-gray-400">
+                            {user.username}
+                          </span>
                         </div>
-                      ))}
-                    </div>
+                        <div className="flex items-center space-x-1">
+                          <span className="text-white font-semibold">
+                            {user.streak}
+                          </span>
+                          <span className="text-orange-500">
+                            <img src="fire2.svg" className="h-5 w-5 ml-1"></img>
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -246,6 +183,16 @@ const Feed = () => {
               <p className="text-gray-600 mt-4">Loading your feed...</p>
             </div>
           )}
+
+          <div className={`flex-grow`}>
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-white">Feed</h2>
+              <PostList
+                posts={posts}
+                user={{ uid: userId, displayName: username }}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <Footer></Footer>

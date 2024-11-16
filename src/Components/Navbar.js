@@ -30,17 +30,17 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/Feed" className={styles.nav_link}>
-                Feed
+                Community Hub
               </Link>
             </li>
             <li>
               <Link to="/Registration" className={styles.nav_link}>
-                Register
+                Add Account
               </Link>
             </li>
             <li>
               <Link to="/Login" className={styles.nav_link}>
-                Login
+                Switch User
               </Link>
             </li>
             <li>

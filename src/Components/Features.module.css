@@ -281,6 +281,7 @@
 .currentTaskOuter li {
   color: #9793ba;
   padding: 5px;
+  font-weight: 600;
   border-radius: 8px;
   margin: 12px;
   background-color: #b0adca23;
@@ -292,3 +293,4 @@
   transform: scale(1.1);
   background-color: #b0adca3a;
 }
+

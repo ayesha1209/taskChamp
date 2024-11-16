@@ -40,16 +40,16 @@ const AddPost = () => {
   };
 
   return (
-    <div className="rounded-xl shadow-sm p-6 max-w-2xl mx-auto mb-1">
-      <h2 className="text-2xl font-semibold mb-4 float-left text-white">
+    <div className="rounded-xl shadow-sm p-8 max-w-2xl mx-auto mb-1">
+      <h2 className="text-2xl font-semibold mb-5 float-left text-white">
         Create Post
       </h2>
-      <form onSubmit={handlePostSubmit} className="space-y-3">
+      <form onSubmit={handlePostSubmit} className="space-y-5">
         <textarea
           value={newPost}
           onChange={(e) => setNewPost(e.target.value)}
           placeholder="Share your thoughts..."
-          className={`w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none h-32 transition duration-200 text-gray-300 placeholder-gray-400 ${styles.share_thought}`}
+          className={`w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none h-48 transition duration-200 text-gray-300 placeholder-gray-400 ${styles.share_thought}`}
         />
         <div className="flex justify-end">
           <button
