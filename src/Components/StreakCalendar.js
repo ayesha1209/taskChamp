@@ -51,8 +51,8 @@ const StreakCalendar = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 10;
-      const rotateY = (x / width - 0.5) * -10;
+      const rotateX = (y / height - 0.5) * 5;
+      const rotateY = (x / width - 0.5) * -5;
 
       table.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
@@ -170,7 +170,19 @@ const StreakCalendar = () => {
 
   return (
     <div className={styles.streak_calendar_container}>
-      <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
+      <div className={styles.taskForm}>
+        <h2>Add tasks in a snap!</h2>
+        <div className={styles.centeredImage}>
+          <img src="taskForm.svg"></img>
+        </div>
+        <div className={styles.taskFormPara}>
+          <p>
+            Tag them as Easy, Medium, or Hard to keep your workload balanced.
+          </p>
+          <p>Let’s get things done!</p>
+        </div>
+        <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
+      </div>
       <br />
       <br />
       <br></br>

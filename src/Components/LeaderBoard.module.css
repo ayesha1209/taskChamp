@@ -159,7 +159,7 @@ h2 {
 }
 
 .leader_inner {
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(60px);
   overflow-y: auto;
   display: flexbox;
   display: flex;
@@ -266,12 +266,12 @@ h2 {
 
 .leader_board_outer {
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 10px;
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
 }
 
 .leader_board_inner {
-  border-radius: 20px;
+  border-radius: 10px;
   max-height: 800px;
   backdrop-filter: blur(500px);
 }

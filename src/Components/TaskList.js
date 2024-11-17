@@ -92,21 +92,22 @@ const TaskList = ({ dateTask, reloadWithTask }) => {
 
   return (
     <div className={styles.tasklist}>
-      <h1>My Task List</h1>
-      <h1>My Task List</h1>
+      <h1>Your daily task HQ!</h1>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "90px",
         }}
       >
         <img
-          src="task_list.png"
+          src="taskList.svg"
           alt="Task List"
           className={styles.tasklist_image}
         />
+      </div>
+      <div className={styles.tasklistPara}>
+        <p>Stay on top of your game!</p>
       </div>
       {tasks.map((task, index) => (
         <TaskItem

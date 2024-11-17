@@ -76,6 +76,12 @@
 
 .comment_div {
   background-color: rgba(214, 193, 255, 0.125);
+  transition: transform 1s ease-in-out;
+}
+
+.comment_div:hover {
+  background-color: rgba(214, 193, 255, 0.2);
+  transform: scale(1.02);
 }
 
 .comment_input {
@@ -88,7 +94,8 @@
 }
 
 .comment_btn {
-  background-color: #6c5abe !important;
+  font-weight: 600;
+  background-color: #62559a !important;
 }
 
 .comment_btn:hover {

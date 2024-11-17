@@ -44,8 +44,8 @@ const Registration = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 10; // Rotate based on vertical mouse movement
-      const rotateY = (x / width - 0.5) * -10; // Rotate based on horizontal mouse movement
+      const rotateX = (y / height - 0.5) * 4; 
+      const rotateY = (x / width - 0.5) * -4; 
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
@@ -294,7 +294,7 @@ const Registration = () => {
                 <button
                   type="button"
                   onClick={handleLoginRedirect}
-                  className="text-[#e09eff] text-md hover:text-[#c880d5]"
+                  className="text-[#736caf] text-md hover:text-[#9793ba]"
                 >
                   Login here
                 </button>

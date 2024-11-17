@@ -166,12 +166,12 @@ const LeaderBoard = () => {
                     className={`text-md sticky top-0 z-10 font-bold ${styles.table_head}`}
                   >
                     <tr>
-                      <th className="px-4 py-5 text-left">Rank</th>
-                      <th className="px-4 text-left">Username</th>
-                      <th className="px-4 text-left">User ID</th>
-                      <th className="px-4 text-left">Completed Tasks</th>
-                      <th className="px-4 text-left">Score</th>
-                      <th className="px-4 text-left">Reward</th>
+                      <th className="px-5 py-5 text-left">Rank</th>
+                      <th className="px-5 text-left">Username</th>
+                      {/* <th className="px-4 text-left">User ID</th> */}
+                      <th className="px-5 text-left">Completed Tasks</th>
+                      <th className="px-5 text-left">Score</th>
+                      <th className="px-5 text-left">Reward</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -184,16 +184,16 @@ const LeaderBoard = () => {
                             : "bg-transparent"
                         } ${styles.leader_table_li}`} // Highlight logged-in user's row
                       >
-                        <td className="px-5 py-3 text-gray-300">{index + 1}</td>
-                        <td className="p-2 text-gray-300 hover:scale-105">
+                        <td className="px-7 py-3 text-gray-300">{index + 1}</td>
+                        <td className="py-2 px-5 text-gray-300 hover:scale-105">
                           {user.username}
                         </td>
-                        <td className="p-2 text-gray-300">{user.userId}</td>
+                        {/* <td className="p-2 text-gray-300">{user.userId}</td> */}
                         <td className="px-16 text-gray-300">
                           {user.completedTasks}
                         </td>
                         <td className="px-6 text-gray-300">{user.score}</td>
-                        <td className="p-2 text-gray-300">
+                        <td className="py-2 px-4 text-gray-300">
                           {getReward(index)}
                         </td>
                       </tr>
