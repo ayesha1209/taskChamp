@@ -4,7 +4,8 @@ import { realDb } from "../firebase";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import styles from "./LeaderBoard.module.css";
-import { getLoggedInUser } from "../FirebaseOperations"; // Import the function
+import { User } from "../models/User";
+import { getLoggedInUser } from "../FirebaseOperations";
 import {
   LineChart,
   Line,
@@ -15,10 +16,39 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import {
+  getStorage,
+  ref as storageRef,
+  getDownloadURL,
+} from "firebase/storage";
 
 const LeaderBoard = () => {
   const [users, setUsers] = useState([]);
   const [loggedInUserRank, setLoggedInUserRank] = useState(null);
+  const [user, setUser] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const userId = localStorage.getItem("userId");
+      const fetchedUser = await User.fetch(userId);
+      setUser(fetchedUser);
+
+      if (fetchedUser.imageUrl) {
+        // Fetch the download URL for the image
+        const storage = getStorage();
+        const storRef = storageRef(storage, fetchedUser.imageUrl);
+        try {
+          const url = await getDownloadURL(storRef);
+          setImageUrl(url); // Set the image URL state
+        } catch (error) {
+          console.error("Error fetching image URL:", error);
+        }
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
 
   useEffect(() => {
     const fetchUsersData = async () => {
@@ -101,6 +131,18 @@ const LeaderBoard = () => {
           <div className={`px-20 py-8 w-[100%] ${styles.leader_inner}`}>
             <h1 className={styles.heading}>LeaderBoard</h1>
             <h1 className={styles.heading}>LeaderBoard</h1>
+            {user && (
+              <div className={styles.userGreeting}>
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt="Profile"
+                    className={styles.profileImage}
+                  />
+                )}
+                <h2 className={styles.userTask}>{user.username} Here !</h2>
+              </div>
+            )}
             {/* Logged-in User's Rank */}
             {loggedInUserRank ? (
               <div
@@ -130,33 +172,45 @@ const LeaderBoard = () => {
               </div>
             )}
             {/* Top 3 Contributors */}
-            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12`}>
-              {users.slice(0, 3).map((user, index) => (
-                <div
-                  key={user.userId}
-                  className={`shadow-xl text-sm rounded-2xl flex flex-col mr-4 items-center hover:cursor-pointer 
-            transition-transform duration-1000 hover:scale-105 ${
-              index === 0
-                ? "border-t-4 border-[#9793ba]"
-                : index === 1
-                ? "border-t-4 border-[#9793ba]"
-                : "border-t-4 border-[#9793ba]"
-            } ${styles.rank_board_outer}`}
-                >
-                  <div className={`${styles.rank_board_inner} p-5`}>
-                    <h2 className="text-lg text-white font-bold mb-1">
-                      {user.username}
-                    </h2>
-                    <p className="text-gray-400 font-semibold">
-                      Tasks Completed: {user.completedTasks}
-                    </p>
-                    <p className="text-gray-400 font-semibold">
-                      Score: {user.score}
-                    </p>
-                    <div className="mt-3 font-semibold">{getReward(index)}</div>
+            <div className={styles.outerRankBoard}>
+              <h3>Top 3 Users</h3>
+              <div className={styles.centerImage}>
+                <img src="/leader.svg"></img>
+                <p>
+                  Gold, Silver, Bronze: more than medals, they're your hustle
+                  goals!
+                </p>
+                <p>Push harder, aim higher, and own the leaderboard!</p>
+              </div>
+              <div className={`grid grid-cols-1 sm:grid-cols-3 gap-10`}>
+                {users.slice(0, 3).map((user, index) => (
+                  <div
+                    key={user.userId}
+                    className={`shadow-xl text-sm rounded-2xl flex flex-col mr-4 items-center hover:cursor-pointer  ${
+                      index === 0
+                        ? "border-t-4 border-[#9793ba]"
+                        : index === 1
+                        ? "border-t-4 border-[#9793ba]"
+                        : "border-t-4 border-[#9793ba]"
+                    } ${styles.rank_board_outer}`}
+                  >
+                    <div className={`${styles.rank_board_inner} p-5`}>
+                      <h2 className="text-lg text-white font-bold mb-1">
+                        {user.username}
+                      </h2>
+                      <p className="text-gray-400 font-semibold">
+                        Tasks Completed: {user.completedTasks}
+                      </p>
+                      <p className="text-gray-400 font-semibold">
+                        Score: {user.score}
+                      </p>
+                      <div className="mt-3 font-semibold">
+                        {getReward(index)}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             {/* Leaderboard Table for the rest */}
             <div className={styles.leader_board_outer}>
@@ -203,42 +257,52 @@ const LeaderBoard = () => {
               </div>
             </div>
             {/* Display the performance graph */}
-            <h2 className="text-3xl text-center text-[#9793ba] mt-16 font-bold">
-              Weekly Performance Comparison (Top 10 Users)
-            </h2>
-            <ResponsiveContainer
-              width="100%"
-              height={400}
-              className="mt-4 mb-3 transition-opacity duration-500 opacity-100 hover:opacity-80 text-black"
-            >
-              <LineChart
-                data={users.slice(0, 10)} // Show only the top 5 users
-                margin={{
-                  top: 20,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
+            <div className={styles.graphOuter}>
+              <h2 className="text-2xl text-center text-white font-bold">
+                Weekly Performance Comparison (Top 10 Users)
+              </h2>
+              <div className={styles.centerImageGraph}>
+                <img src="/graph.svg"></img>
+                <p>
+                  Check out the top 10 users' vibes! Charts show their scores &
+                  tasks smashed.
+                </p>
+                <p>Insights = user energy + productivity decoded!</p>
+              </div>
+              <ResponsiveContainer
+                width="100%"
+                height={400}
+                className="mt-4 mb-3 pr-5 transition-opacity duration-500 opacity-100 hover:opacity-80 text-black"
               >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="username" className="text-black text-sm" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="score"
-                  stroke="#8B5DFF"
-                  strokeWidth={2}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="completedTasks"
-                  stroke="#9793ba"
-                  strokeWidth={2}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+                <LineChart
+                  data={users.slice(0, 10)}
+                  margin={{
+                    top: 20,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="username" className="text-black text-sm" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="score"
+                    stroke="#8B5DFF"
+                    strokeWidth={2}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="completedTasks"
+                    stroke="#9793ba"
+                    strokeWidth={2}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
         <Footer></Footer>
