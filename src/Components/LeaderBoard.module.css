@@ -3,21 +3,10 @@
   margin: 20px auto;
   padding: 20px;
   border: 2px solid #ddd;
+  overflow: hidden;
   border-radius: 10px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.LoggedInUserRow {
-  background-color: #f0e68c; /* Highlight color */
-  font-weight: bold; /* Make text bold */
-}
-
-h1 {
-  text-align: center;
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
 }
 
 table {
@@ -56,18 +45,6 @@ td:nth-child(1) {
   font-weight: bold;
 }
 
-.Gold {
-  color: #ffd700; /* Gold Medal Color */
-}
-
-.Silver {
-  color: #c0c0c0; /* Silver Medal Color */
-}
-
-.Bronze {
-  color: #cd7f32; /* Bronze Medal Color */
-}
-
 .GraphContainer {
   width: 80%;
   margin: 30px auto;
@@ -102,46 +79,6 @@ h2 {
   font-weight: bold;
 }
 
-.User1Color {
-  color: #4caf50; /* Green */
-}
-
-.User2Color {
-  color: #ff6347; /* Tomato Red */
-}
-
-.User3Color {
-  color: #000912; /* Dodger Blue */
-}
-
-.User4Color {
-  color: #ff8c00; /* Dark Orange */
-}
-
-.User5Color {
-  color: #800080; /* Purple */
-}
-
-.User6Color {
-  color: #20b2aa; /* Light Sea Green */
-}
-
-.User7Color {
-  color: #ff1493; /* Deep Pink */
-}
-
-.User8Color {
-  color: #8b4513; /* Saddle Brown */
-}
-
-.User9Color {
-  color: #04253f; /* Steel Blue */
-}
-
-.User10Color {
-  color: #ff4500; /* Orange Red */
-}
-
 .ChartTooltip {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -155,6 +92,7 @@ h2 {
 }
 
 .leader_outer {
+  overflow: hidden;
   background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
 }
 
@@ -403,4 +341,13 @@ h2 {
   font-size: 16px;
   color: #9793ba;
   font-weight: 500;
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: transparent;
+  pointer-events: none;
 }

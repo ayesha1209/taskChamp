@@ -20,7 +20,7 @@
 }
 
 .canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -50,9 +50,7 @@
 }
 
 .streak_outer {
-  background-position: center;
   overflow: hidden;
-  background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
   background-color: rgb(4, 0, 7);
@@ -65,7 +63,7 @@
   width: 80%;
   margin-left: 20%;
   padding-bottom: 50px;
-  backdrop-filter: blur(80px);
+  backdrop-filter: blur(60px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;

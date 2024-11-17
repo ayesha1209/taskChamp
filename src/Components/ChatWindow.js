@@ -8,7 +8,6 @@ import { Search as SearchIcon, Send, Paperclip } from "lucide-react";
 const ChatWindow = ({ currentUser, chatPartner }) => {
   const [messages, setMessages] = useState([]);
   const [messageText, setMessageText] = useState("");
-
   const TEST_USER_ID = "user_1725465375818";
 
   useEffect(() => {

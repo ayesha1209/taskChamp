@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import ChatWindow from "./ChatWindow";
@@ -67,12 +67,15 @@ const Chat = () => {
 
   return (
     <div>
-      <Navbar></Navbar>
+      <div className={styles.navbar}>
+        <Navbar></Navbar>
+      </div>
       <div
         className="flex h-screen bg-white"
-        style={{ "margin-left": "250px" }}
+        style={{ "margin-left": "240px" }}
       >
         <Sidebar
+          className={styles.side}
           currentUser={currentUser}
           recentChats={recentChats}
           allUsers={allUsers}
@@ -80,6 +83,7 @@ const Chat = () => {
         />
         {currentUser && selectedChatPartner ? (
           <div className={styles.window_div_outer}>
+            {/* <canvas ref={canvasRef} className={styles.canvas} id="canvas" /> */}
             <div className={styles.window_div}>
               <ChatWindow
                 className={styles.chat_window}
@@ -92,6 +96,7 @@ const Chat = () => {
           <div
             className={`${styles.no_chat_outer} flex-1 flex items-center justify-center text-gray-500`}
           >
+            {/* <canvas ref={canvasRef} className={styles.canvas} id="canvas" /> */}
             <div className={styles.no_chat_inner}>
               Select a conversation to start messaging
             </div>
