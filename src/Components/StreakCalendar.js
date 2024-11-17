@@ -51,8 +51,8 @@ const StreakCalendar = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 5;
-      const rotateY = (x / width - 0.5) * -5;
+      const rotateX = (y / height - 0.5) * 3;
+      const rotateY = (x / width - 0.5) * -3;
 
       table.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
@@ -205,20 +205,17 @@ const StreakCalendar = () => {
           ></div>
 
           <div className={styles.streak_calendar_table_2}>
-            <h2 className={styles.streak_calendar_title}>
-              Streak Calendar -{" "}
-              {currentMonth.toLocaleDateString("en-US", {
-                month: "long",
-                year: "numeric",
-              })}
-            </h2>
-
+            <h2 className={styles.streak_calendar_title}>Streak Calendar</h2>
             <div className={styles.navigation_buttons}>
               <button
                 onClick={handlePrevMonth}
                 className={styles.prev_button}
                 aria-label="Previous Month"
               ></button>
+              {currentMonth.toLocaleDateString("en-US", {
+                month: "long",
+                year: "numeric",
+              })}
               <button
                 onClick={handleNextMonth}
                 className={styles.next_button}
