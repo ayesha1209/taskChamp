@@ -22,6 +22,7 @@
 
 .feed_inner {
   height: 100%;
+  z-index: 3;
   backdrop-filter: blur(50px);
 }
 
@@ -247,4 +248,25 @@
   margin-top: 20px;
   font-weight: 600;
   color: white;
+}
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.navbar {
+  width: 20%;
+  height: 100vh;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
 }
