@@ -10,6 +10,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 2;
+  min-height: 100vh;
   background-color: black;
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
 }
