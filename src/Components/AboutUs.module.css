@@ -89,12 +89,13 @@
 .about_header p {
   font-size: 22px;
   margin-top: 100px;
+  margin-bottom: 0;
   color: #9793ba;
 }
 
 .mission,
 .vision {
-  margin: 0px 60px;
+  margin: 0px 65px;
   margin-bottom: 50px;
   background-size: cover;
   background-position: center;
@@ -112,16 +113,15 @@
 
 .mission p,
 .vision p {
-  margin-top: 10px;
   color: #b3b0cd;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
 .vision_inner,
 .mission_inner {
   backdrop-filter: blur(220px);
-  padding: 20px 30px;
+  padding: 20px 55px;
   padding-bottom: 30px;
 }
 
@@ -215,7 +215,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .canvas {
@@ -238,4 +237,99 @@
   display: flex;
   flex-direction: column;
   background-color: #f4f4f4;
+}
+
+.miss_viss {
+  border: 2px solid #9793ba;
+  color: #9793ba;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin: 50px 180px;
+  background-color: #9793ba1e;
+  margin-top: 0px;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.miss_viss img {
+  height: 200px;
+}
+
+.miss_viss p {
+  margin-top: 10px;
+}
+
+.miss_viss div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.studentContribution {
+  border: 2px solid #9793ba;
+  margin: 50px 130px;
+  padding: 40px 50px;
+  background-color: #9793ba1b;
+  border-radius: 20px;
+}
+
+.studentContribution h3 {
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.studentContribution ul {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.studentContribution li {
+  font-size: 18px;
+  color: #9793ba;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.centeredImage img {
+  height: 250px;
+}
+
+.techUsed {
+  margin: 0 100px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  padding: 30px 10px;
+  background-color: #9793ba1b;
+  border: 2px solid #9793ba;
+}
+
+.techUsed h3 {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.techUsed div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.techUsed img {
+  height: 350px;
+}
+
+.techUsed p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #9793ba;
+  padding: 20px 40px;
 }
