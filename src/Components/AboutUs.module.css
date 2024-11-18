@@ -1,7 +1,7 @@
 .about_us_container {
   width: 100%;
   margin: 0px auto;
-  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  background-image: url("https://i.pinimg.com/736x/8a/49/1e/8a491ec3a7a60bb86641beea7a800735.jpg");
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
@@ -130,6 +130,7 @@
   overflow: hidden;
   border-radius: 20px;
   background-size: cover;
+  margin: 0 20px;
   border: 1.5px solid #9793ba;
   background-position: center;
   background-repeat: no-repeat;
@@ -206,6 +207,7 @@
 .about_inner {
   margin-left: 250px;
   backdrop-filter: blur(60px);
+  background-color: rgba(119, 0, 255, 0.02s);
   padding: 10px 30px;
 }
 

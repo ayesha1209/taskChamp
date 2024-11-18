@@ -44,8 +44,8 @@ const Registration = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 4; 
-      const rotateY = (x / width - 0.5) * -4; 
+      const rotateX = (y / height - 0.5) * 4;
+      const rotateY = (x / width - 0.5) * -4;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
@@ -273,7 +273,7 @@ const Registration = () => {
                   />
                 </div>
 
-                <button type="submit" className={styles.submitButton}>
+                <button type="submit" className={`${styles.submitButton} mt-2`}>
                   Register
                 </button>
                 {userId && (
@@ -289,12 +289,12 @@ const Registration = () => {
                 )}
               </form>
 
-              <p className="text-center text-md text-[#d1c4db] mt-4">
-                Already have an account?{" "}
+              <p className="text-center text-md text-[#d1c4db] mt-3">
+                Already have an account?
                 <button
                   type="button"
                   onClick={handleLoginRedirect}
-                  className="text-[#736caf] text-md hover:text-[#9793ba]"
+                  className="text-[#736caf] pl-2 text-md hover:text-[#9793ba]"
                 >
                   Login here
                 </button>

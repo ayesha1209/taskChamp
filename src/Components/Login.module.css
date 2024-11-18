@@ -65,6 +65,7 @@
 
 .rightSection {
   backdrop-filter: blur(150px);
+  background-color: #9793ba08;
   border-end-end-radius: 2rem;
   border-top-right-radius: 2rem;
   padding: 30px 40px;
