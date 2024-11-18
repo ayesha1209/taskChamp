@@ -170,7 +170,13 @@ const StreakCalendar = () => {
 
   return (
     <div className={styles.streak_calendar_container}>
-      <div className={styles.taskForm}>
+      <div className={styles.activeImage}>
+        <h3>My Activity Zone!</h3>
+        <div className={styles.centeredImage}>
+          <img src="activity.svg"></img>
+        </div>
+      </div>
+      {/* <div className={styles.taskForm}>
         <h2>Add tasks in a snap!</h2>
         <div className={styles.centeredImage}>
           <img src="taskForm.svg"></img>
@@ -181,8 +187,8 @@ const StreakCalendar = () => {
             Tag them as Easy, Medium, or Hard to keep your workload balanced.
           </p>
         </div>
-        <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
-      </div>
+      </div> */}
+      <TaskForm reloadWithTask={reloadWithTask} setDateTask={setDateTask} />
       <br />
       <br />
       <br></br>
