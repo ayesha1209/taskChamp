@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 350px;
+  width: 450px;
   margin: 0 auto;
   border-radius: 12px;
   color: #d1c4db;
@@ -19,12 +19,21 @@
   perspective: 1000px;
 }
 
+.task_form h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 500;
+}
+
 .task_form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 30px;
-  backdrop-filter: blur(80px);
+  padding: 42px;
+  backdrop-filter: blur(150px);
   width: 100%;
   border-radius: 12px;
   color: #d1c4db;
@@ -65,10 +74,10 @@
   border: 2px solid #d1c4db3f;
   border-radius: 7px;
   width: 100%;
+  background-color: #9793ba26;
   backdrop-filter: blur(50px);
   color: #d1c4db;
   font-size: 16px;
-  background-color: transparent;
 }
 
 .task_form_input::placeholder {
@@ -82,11 +91,12 @@
 }
 
 .task_form_button {
-  background-color: #5c4cb0;
+  background-color: #6959b7;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
   height: 40px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   border-radius: 7px;
   color: white;
   cursor: pointer;
