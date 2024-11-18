@@ -32,7 +32,7 @@
   margin-top: -13px;
   overflow: hidden;
   scale: 0.9;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #9793bab0;
 }
 
 .blurBackground {
@@ -47,7 +47,7 @@
 
 .blur_inner {
   backdrop-filter: blur(220px);
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #9793ba1a;
   overflow: hidden;
   width: 100%;
   padding: 23px 40px;
@@ -57,13 +57,6 @@
   width: 100%;
   max-width: 100%;
   padding: 1.5rem 2.5rem;
-}
-
-.title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  color: #333333;
-  text-align: center;
 }
 
 .imagePreview {

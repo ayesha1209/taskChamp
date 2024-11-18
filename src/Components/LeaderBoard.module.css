@@ -93,10 +93,11 @@ h2 {
 
 .leader_outer {
   overflow: hidden;
-  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  background-image: url("https://i.pinimg.com/736x/8a/49/1e/8a491ec3a7a60bb86641beea7a800735.jpg");
 }
 
 .leader_inner {
+  background-color: rgba(119, 0, 255, 0.02s);
   backdrop-filter: blur(60px);
   overflow-y: auto;
   display: flexbox;

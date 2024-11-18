@@ -9,48 +9,77 @@ const Navbar = () => {
           <ul>
             <li>
               <Link to="/Feature" className={styles.nav_link}>
-                Dashboard
+                <div>
+                  <img src="dash_nav.svg"></img>
+                  Dashboard
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/MyActivity" className={styles.nav_link}>
-                My Activity
+                <div>
+                  <img
+                    style={{ height: "23px", marginLeft: "-1px" }}
+                    src="act_nav.svg"
+                  ></img>
+                  My Activity
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/LeaderBoard" className={styles.nav_link}>
-                Leader Board
+                <div>
+                  <img style={{ height: "22px" }} src="lead_nav.svg"></img>
+                  Leader Board
+                </div>
               </Link>
             </li>
-
             <li>
               <Link to="/Chat" className={styles.nav_link}>
-                Conversations
+                <div>
+                  <img style={{ height: "22px" }} src="chat_nav.svg"></img>
+                  Conversations
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/Feed" className={styles.nav_link}>
-                Community Hub
+                <div>
+                  <img style={{ height: "22px" }} src="feed_nav.svg"></img>
+                  Community Hub
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/Registration" className={styles.nav_link}>
-                Add Account
+                <div>
+                  <img src="reg_nav.svg" style={{ height: "22px" }}></img>Add
+                  Account
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/Login" className={styles.nav_link}>
-                Switch User
+                <div>
+                  <img style={{ height: "22px" }} src="log_nav.svg"></img>Switch
+                  User
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/UserProfile" className={styles.nav_link}>
-                User Profile
+                <div>
+                  <img style={{ height: "22px" }} src="pro_nav.svg"></img>User
+                  Profile
+                </div>
               </Link>
             </li>
             <li>
               <Link to="/AboutUs" className={styles.nav_link}>
-                About Us
+                <div>
+                  <img style={{ height: "25px" }} src="team_nav.svg"></img>About
+                  Us
+                </div>
               </Link>
             </li>
           </ul>
