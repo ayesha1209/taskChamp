@@ -29,7 +29,7 @@ const Navbar = () => {
             <li>
               <Link to="/LeaderBoard" className={styles.nav_link}>
                 <div>
-                  <img style={{ height: "22px" }} src="lead_nav.svg"></img>
+                  <img src="leader_nav.svg"></img>
                   Leader Board
                 </div>
               </Link>

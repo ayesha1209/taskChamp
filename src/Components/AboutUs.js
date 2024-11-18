@@ -192,6 +192,12 @@ const AboutUs = () => {
           <h1>What is Tasky ?!</h1>
           <p>Discover who we are and what we stand for !</p>
         </section>
+        <div className={styles.miss_viss}>
+          <div>
+            <img src="mission_vission.svg"></img>
+          </div>
+          <p>Let's dive into our mission and vision!</p>
+        </div>
         <section className={styles.mission}>
           <div className={styles.mission_inner}>
             <h2>Our Mission</h2>
@@ -218,8 +224,23 @@ const AboutUs = () => {
             </p>
           </div>
         </section>
-        <div className={styles.centeredImage}>
-          <img src="/about.svg"></img>
+        <div className={styles.studentContribution}>
+          <h3>Student Contributions</h3>
+          <div className={styles.centeredImage}>
+            <img src="/student_contr.svg"></img>
+          </div>
+          <ul>
+            <li>
+              Khushi is working on MyActivity, Registration, and User Profile.
+            </li>
+            <li>
+              Vrunda is focused on the Leaderboard and contributing to Login.
+            </li>
+            <li>Ayesha is handling the Feed/Post and Chat features.</li>
+            <li>
+              Meghana is responsible for the Dashboard and the About Us page.
+            </li>
+          </ul>
         </div>
         <section className={styles.team}>
           <div className={styles.team_inner}>
@@ -263,6 +284,20 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
+        </section>
+        <section className={styles.techUsed}>
+          <h3>Tasky Application Technology Stack</h3>
+          <div>
+            <img src="tech_app.svg"></img>
+          </div>
+          <p>
+            The combination of React, Tailwind CSS, Firebase, Firestore, Node
+            modules, and GitHub has enabled us to create Tasky as a modern and
+            efficient task management application. Each technology plays a
+            crucial role in ensuring that the application is user-friendly,
+            scalable, and maintainable. We are excited to continue developing
+            Tasky and enhancing its features in the future.
+          </p>
         </section>
       </div>
       <Footer></Footer>

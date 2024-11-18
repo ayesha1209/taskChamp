@@ -350,7 +350,7 @@ const LeaderBoard = () => {
                 </p>
                 <p>Push harder, aim higher, and own the leaderboard!</p>
               </div>
-              <div className={`grid grid-cols-1 sm:grid-cols-3 gap-10`}>
+              <div className={`grid grid-cols-1 sm:grid-cols-3 gap-8`}>
                 {users.slice(0, 3).map((user, index) => (
                   <div
                     key={user.userId}
