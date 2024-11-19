@@ -300,7 +300,9 @@ const Features = () => {
         <div ref={penRef} className={styles.currentTaskOuter}>
           <div>
             <h3>Your Pending Tasks</h3>
-            <img src="dash.png"></img>
+            <div className={styles.currentCenter}>
+              <img src="dash.png"></img>
+            </div>
             {taskNames.length > 0 ? (
               <ul>
                 {taskNames.map((name, index) => (
