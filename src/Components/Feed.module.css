@@ -161,6 +161,11 @@
 
 .centerImage img {
   height: 300px;
+  transition: transform 1s ease-in-out;
+}
+
+.centerImage img:hover {
+  transform: scale(1.05);
 }
 
 .hubIntro {
@@ -190,7 +195,10 @@
 }
 
 .postListOuter img {
-  height: 200px;
+  height: 300px;
+  margin: -25px 0;
+  margin-bottom: -30px;
+  transition: transform 1s ease-in-out;
 }
 
 .postListPara {
