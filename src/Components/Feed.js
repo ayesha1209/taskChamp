@@ -396,7 +396,7 @@ const Feed = () => {
                 Dive into the Feed!
               </h2>
               <div className={styles.centerImage}>
-                <img src="/postlist.svg"></img>
+                <img src="/post.png"></img>
               </div>
               <p className={styles.postListPara}>
                 Our keeps you updated with posts from the community and trends.
