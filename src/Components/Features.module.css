@@ -267,7 +267,7 @@
 }
 
 .currentTaskOuter {
-  margin: 40px 250px;
+  margin: 40px 150px;
   overflow: hidden;
   border-radius: 17px;
   border: 2px solid #9793ba;
@@ -299,8 +299,25 @@
   transition: transform 0.8s ease-in-out;
 }
 
+.currentTaskOuter img {
+  height: 250px;
+  margin: -50px 0;
+  margin-top: -80px;
+  transition: transform 1s ease-in-out;
+}
+
+.currentTaskOuter img:hover {
+  transform: scale(1.05);
+}
+
+.currentCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .currentTaskOuter li:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: #b0adca3a;
 }
 
