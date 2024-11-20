@@ -141,7 +141,8 @@
 
 .logImage {
   position: fixed;
-  top: 110px;
-  left: 220px;
+  top: 168px;
+  left: 255px;
+  height: 400px;
   z-index: 10;
 }

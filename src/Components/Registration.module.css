@@ -203,3 +203,7 @@
 .reg_image:hover {
   transform: rotateY(360deg);
 }
+
+.regImage {
+  position: fixed;
+}
