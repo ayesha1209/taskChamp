@@ -98,7 +98,7 @@ const TaskForm = ({ reloadWithTask, setDateTask }) => {
           </button>
         </form>
       </div>
-      {/* <img src="tf2.png" className={styles.task_form_image2}></img> */}
+      <img src="taskAdd.png" className={styles.task_form_image2}></img>
     </div>
   );
 };

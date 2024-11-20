@@ -21,20 +21,14 @@
 }
 
 .tasklist_image {
-  height: 300px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  animation: pulse 5s ease-in-out infinite;
+  height: 320px;
+  margin-top: -50px;
+  margin-bottom: -55px;
+  transition: transform 1s ease-in-out;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+.tasklist_image:hover {
+  transform: scale(1.05);
 }
 
 .tasklistPara {
