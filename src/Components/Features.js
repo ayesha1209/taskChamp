@@ -16,7 +16,7 @@ const Features = () => {
   const ftRef4 = useTiltEffect();
   const ftRef5 = useTiltEffect();
   const ftRef6 = useTiltEffect();
-  const penRef = useTiltEffect();
+  // const penRef = useTiltEffect();
   const [taskNames, setTaskNames] = useState([]);
   const canvasRef = useRef(null);
   const ballsRef = useRef([]);
@@ -297,7 +297,7 @@ const Features = () => {
             </div>
           </div>
         )}
-        <div ref={penRef} className={styles.currentTaskOuter}>
+        <div className={styles.currentTaskOuter}>
           <div>
             <h3>Your Pending Tasks</h3>
             <div className={styles.currentCenter}>

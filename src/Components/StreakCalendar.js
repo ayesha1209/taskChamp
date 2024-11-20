@@ -192,110 +192,115 @@ const StreakCalendar = () => {
       <br />
       <br />
       <br></br>
-      <div className={styles.streak_calendar_table_1} ref={tableRef}>
-        <div
-          className={`${styles.streak_calendar_table} ${
-            hasSpun ? styles.spin : ""
-          }`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseExit}
-        >
+      <div className={styles.streakImageOuter}>
+        <div className={styles.streakImage}>
+          <img src="streak.png"></img>
+        </div>
+        <div className={styles.streak_calendar_table_1} ref={tableRef}>
           <div
-            className={styles.glowingEffect}
-            ref={glowRef}
-            style={{
-              position: "absolute",
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-            }}
-          ></div>
+            className={`${styles.streak_calendar_table} ${
+              hasSpun ? styles.spin : ""
+            }`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseExit}
+          >
+            <div
+              className={styles.glowingEffect}
+              ref={glowRef}
+              style={{
+                position: "absolute",
+                left: `${cursorPosition.x}px`,
+                top: `${cursorPosition.y}px`,
+              }}
+            ></div>
 
-          <div className={styles.streak_calendar_table_2}>
-            <h2 className={styles.streak_calendar_title}>Streak Calendar</h2>
-            <div className={styles.navigation_buttons}>
-              <button
-                onClick={handlePrevMonth}
-                className={styles.prev_button}
-                aria-label="Previous Month"
-              ></button>
-              {currentMonth.toLocaleDateString("en-US", {
-                month: "long",
-                year: "numeric",
-              })}
-              <button
-                onClick={handleNextMonth}
-                className={styles.next_button}
-                aria-label="Next Month"
-              ></button>
-            </div>
-
-            <div className={styles.streak_calendar_grid}>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Sun</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Mon</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Tue</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Wed</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Thus</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Fri</div>
-              </div>
-              <div className={styles.streak_calendar_header}>
-                <div className={styles.streak_inner_header}>Sat</div>
+            <div className={styles.streak_calendar_table_2}>
+              <h2 className={styles.streak_calendar_title}>Streak Calendar</h2>
+              <div className={styles.navigation_buttons}>
+                <button
+                  onClick={handlePrevMonth}
+                  className={styles.prev_button}
+                  aria-label="Previous Month"
+                ></button>
+                {currentMonth.toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+                <button
+                  onClick={handleNextMonth}
+                  className={styles.next_button}
+                  aria-label="Next Month"
+                ></button>
               </div>
 
-              {calendarDays.map((day, index) => {
-                if (day === null) {
-                  return (
-                    <div key={index} className={styles.streak_calendar_day} />
+              <div className={styles.streak_calendar_grid}>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Sun</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Mon</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Tue</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Wed</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Thus</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Fri</div>
+                </div>
+                <div className={styles.streak_calendar_header}>
+                  <div className={styles.streak_inner_header}>Sat</div>
+                </div>
+
+                {calendarDays.map((day, index) => {
+                  if (day === null) {
+                    return (
+                      <div key={index} className={styles.streak_calendar_day} />
+                    );
+                  }
+
+                  const dayString = formatDateToDDMMYYYY(day);
+                  const isActivityDay = activityDays.includes(dayString);
+                  const isSpecialDay = specialDates.includes(dayString);
+                  const isSelectedDay = dateTask === dayString;
+                  const displayContent = specialDates.includes(dayString) ? (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "100%",
+                      }}
+                    >
+                      <img
+                        src="streak.svg"
+                        alt="streak"
+                        className={styles.streak_image}
+                      />
+                    </div>
+                  ) : (
+                    day.getDate()
                   );
-                }
 
-                const dayString = formatDateToDDMMYYYY(day);
-                const isActivityDay = activityDays.includes(dayString);
-                const isSpecialDay = specialDates.includes(dayString);
-                const isSelectedDay = dateTask === dayString;
-                const displayContent = specialDates.includes(dayString) ? (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      height: "100%",
-                    }}
-                  >
-                    <img
-                      src="streak.svg"
-                      alt="streak"
-                      className={styles.streak_image}
-                    />
-                  </div>
-                ) : (
-                  day.getDate()
-                );
-
-                return (
-                  <div
-                    key={index}
-                    className={`${styles.streak_calendar_day} ${
-                      isActivityDay ? styles.activity : ""
-                    } ${isSpecialDay ? styles.special : ""} ${
-                      isSelectedDay ? styles.selected_day : ""
-                    }`}
-                    onClick={() => getTaskListOfDay(day)}
-                  >
-                    {displayContent}
-                  </div>
-                );
-              })}
+                  return (
+                    <div
+                      key={index}
+                      className={`${styles.streak_calendar_day} ${
+                        isActivityDay ? styles.activity : ""
+                      } ${isSpecialDay ? styles.special : ""} ${
+                        isSelectedDay ? styles.selected_day : ""
+                      }`}
+                      onClick={() => getTaskListOfDay(day)}
+                    >
+                      {displayContent}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

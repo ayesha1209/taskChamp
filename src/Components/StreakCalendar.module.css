@@ -68,7 +68,7 @@
 }
 
 .streak_calendar_table_1 {
-  margin: 0px 155px;
+  margin-left: -100px;
   border-radius: 15px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -76,6 +76,17 @@
   background-position: center;
   box-shadow: 0 8px 10px black;
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+}
+
+.streakImage img {
+  height: 400px;
+  opacity: 0.9;
+  margin-left: -80px;
+  transition: transform 1s ease-in-out;
+}
+
+.streakImage img:hover {
+  transform: scale(1.05);
 }
 
 .streak_calendar_table {
@@ -253,4 +264,10 @@ body {
   color: white;
   font-weight: 500;
   text-align: center;
+}
+
+.streakImageOuter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

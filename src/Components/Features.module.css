@@ -285,7 +285,7 @@
 .currentTaskOuter div {
   padding: 30px 40px;
   width: 100%;
-  backdrop-filter: blur(130px);
+  backdrop-filter: blur(170px);
 }
 
 .currentTaskOuter li {
@@ -326,6 +326,14 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
+}
+
+.centerImage img {
+  transition: transform 1s ease-in-out;
+}
+
+.centerImage img:hover {
+  transform: scale(1.04);
 }
 
 .navbar {
