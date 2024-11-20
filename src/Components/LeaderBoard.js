@@ -341,7 +341,7 @@ const LeaderBoard = () => {
             )}
             {/* Top 3 Contributors */}
             <div className={styles.outerRankBoard}>
-              <h3>Top 3 Users</h3>
+              <h3>Streak Stars : The Top 3 Taskmasters</h3>
               <div className={styles.centerImage}>
                 <img src="/leader.svg"></img>
                 <p>
@@ -427,7 +427,7 @@ const LeaderBoard = () => {
             {/* Display the performance graph */}
             <div className={styles.graphOuter}>
               <h2 className="text-2xl text-center text-white font-bold">
-                Weekly Performance Comparison (Top 10 Users)
+                Weekly Showdown : The Top 10 Task Titans
               </h2>
               <div className={styles.centerImageGraph}>
                 <img src="/graph.svg"></img>
