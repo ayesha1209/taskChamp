@@ -157,7 +157,7 @@ const Registration = () => {
             animation: "pulse 0s infinite",
           }}
         ></div>
-
+        <img src="reg.png" className={styles.regImage}></img>
         <div ref={cardRef} className={styles.reg_container}>
           <div className={`${styles.blurBackground} w-[100%] md:w-[100%]`}>
             <div className={styles.blur_inner}>

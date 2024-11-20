@@ -244,7 +244,7 @@ const AboutUs = () => {
         </div>
         <section className={styles.team}>
           <div className={styles.team_inner}>
-            <h2>Meet Our Team</h2>
+            <h2>Meet the Squad : Minds Behind the Tasky!</h2>
             <div className={styles["team_members"]}>
               <div className={styles["member_card"]}>
                 <div
@@ -286,7 +286,7 @@ const AboutUs = () => {
           </div>
         </section>
         <section className={styles.techUsed}>
-          <h3>Tasky Application Technology Stack</h3>
+          <h3>Tasky Tech Stack!</h3>
           <div>
             <img src="tech_app.svg"></img>
           </div>
