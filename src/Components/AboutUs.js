@@ -225,7 +225,7 @@ const AboutUs = () => {
           </div>
         </section>
         <div className={styles.studentContribution}>
-          <h3>Student Contributions</h3>
+          <h3>Student Initiatives</h3>
           <div className={styles.centeredImage}>
             <img src="/student_contr.svg"></img>
           </div>
