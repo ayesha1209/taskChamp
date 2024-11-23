@@ -17,7 +17,7 @@
   align-content: center;
   color: white;
   padding: 65px 20px;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .member_photo {
   width: 125px;
@@ -145,7 +145,7 @@
 }
 
 .team h2 {
-  font-size: 28px;
+  font-size: 27px;
   margin-bottom: 30px;
   font-weight: 600;
   color: white;
@@ -253,6 +253,11 @@
 
 .miss_viss img {
   height: 200px;
+  transition: transform 1s ease-in-out;
+}
+
+.miss_viss img:hover {
+  transform: scale(1.03);
 }
 
 .miss_viss p {
@@ -297,6 +302,11 @@
 
 .centeredImage img {
   height: 250px;
+  transition: transform 1s ease-in-out;
+}
+
+.centeredImage img:hover {
+  transform: scale(1.03);
 }
 
 .techUsed {
@@ -323,7 +333,12 @@
 }
 
 .techUsed img {
-  height: 300px;
+  height: 290px;
+  transition: transform 1s ease-in-out;
+}
+
+.techUsed img:hover {
+  transform: scale(1.03);
 }
 
 .techUsed p {

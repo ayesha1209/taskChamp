@@ -249,21 +249,28 @@ h2 {
 
 .leader_board_outer {
   overflow: hidden;
-  border-radius: 10px;
+  border: 2px solid #9793ba;
+  border-radius: 13px;
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
 }
 
 .leader_board_inner {
-  border-radius: 10px;
-  max-height: 660px;
+  max-height: 593px;
   backdrop-filter: blur(500px);
 }
 
 .table_head {
   position: sticky;
   top: 0;
-  font-size: 16px;
-  z-index: 1;
+  left: 0;
+  font-size: 19px;
+}
+
+.table_head tr {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .table_head th {
@@ -279,11 +286,6 @@ h2 {
   transform: scale(1.02);
   background-color: #9793ba19;
 }
-
-/* .gold_li {
-  background-color: #9793ba80 !important;
-  color: black;
-} */
 
 .userGreeting {
   display: flex;
