@@ -3,7 +3,6 @@ import { ref, get } from "firebase/database";
 import { realDb } from "../firebase";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { getLoggedInUser } from "../FirebaseOperations"; // Import the function
 import {
   LineChart,
   Line,
@@ -18,6 +17,7 @@ import {
 const LeaderBoard = () => {
   const [users, setUsers] = useState([]);
   const [loggedInUserRank, setLoggedInUserRank] = useState(null);
+  const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
     const fetchUsersData = async () => {
@@ -39,19 +39,26 @@ const LeaderBoard = () => {
           );
 
           return {
-            userId, // User ID from Firebase
+            userId, 
             username: user.username,
+            profileImage: user.imageUrl || "/default-profile.png", // Use default if no profile image
             completedTasks,
             score,
           };
         });
 
-        // Sort leaderboard by score, then by completed tasks
+        
         leaderboardData.sort(
           (a, b) => b.score - a.score || b.completedTasks - a.completedTasks
         );
 
-        // Get the logged-in user information
+        const graphData = leaderboardData.slice(0, 10).map((user, index) => ({
+          name: user.username,
+          score: user.score,
+          completedTasks: user.completedTasks,
+        }));
+
+        
         const loggedInUser = localStorage.getItem("userId");
 
         if (loggedInUser) {
@@ -66,8 +73,8 @@ const LeaderBoard = () => {
           }
         }
 
-        console.log("Leaderboard Data:", leaderboardData);
         setUsers(leaderboardData);
+        setGraphData(graphData); // Update graph data
       }
     };
 
@@ -101,15 +108,24 @@ const LeaderBoard = () => {
             <h2 className="text-xl font-bold mb-2">
               Your Rank: {loggedInUserRank.rank}
             </h2>
-            <p className="text-gray-600 text-sm font-semibold mb-1">
-              Username: {loggedInUserRank.username}
-            </p>
-            <p className="text-gray-600 text-sm font-semibold mb-1">
-              Tasks Completed: {loggedInUserRank.completedTasks}
-            </p>
-            <p className="text-gray-600 text-sm font-semibold mb-1">
-              Score: {loggedInUserRank.score}
-            </p>
+            <div className="flex items-center gap-4">
+              <img
+                src={loggedInUserRank.profileImage}
+                alt="Profile"
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p className="text-gray-600 text-sm font-semibold mb-1">
+                  Username: {loggedInUserRank.username}
+                </p>
+                <p className="text-gray-600 text-sm font-semibold mb-1">
+                  Tasks Completed: {loggedInUserRank.completedTasks}
+                </p>
+                <p className="text-gray-600 text-sm font-semibold mb-1">
+                  Score: {loggedInUserRank.score}
+                </p>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
@@ -134,6 +150,11 @@ const LeaderBoard = () => {
                 : "border-t-4 border-orange-400"
             }`}
             >
+              <img
+                src={user.profileImage}
+                alt="Profile"
+                className="w-16 h-16 rounded-full object-cover mb-2"
+              />
               <h2 className="text-lg font-bold mb-1">{user.username}</h2>
               <p className="text-gray-600 font-semibold">
                 Tasks Completed: {user.completedTasks}
@@ -144,12 +165,13 @@ const LeaderBoard = () => {
           ))}
         </div>
 
-        {/* Leaderboard Table for the rest */}
+        {/* Leaderboard Table */}
         <div className="overflow-y-auto max-h-96">
           <table className="min-w-full bg-white border-2 border-gray-400 shadow-md rounded-lg overflow-hidden hover:cursor-pointer">
             <thead className="bg-blue-200 text-sm font-bold">
               <tr>
                 <th className="p-2 text-left">Rank</th>
+                <th className="p-2 text-left">Profile</th>
                 <th className="p-2 text-left">Username</th>
                 <th className="p-2 text-left">User ID</th>
                 <th className="p-2 text-left">Completed Tasks</th>
@@ -165,10 +187,17 @@ const LeaderBoard = () => {
                     user.userId === loggedInUserRank?.userId
                       ? "bg-yellow-100"
                       : ""
-                  }`} // Highlight logged-in user's row
+                  }`}
                 >
                   <td className="p-2">{index + 1}</td>
-                  <td className="p-2 hover:scale-105">{user.username}</td>
+                  <td className="p-2">
+                    <img
+                      src={user.profileImage}
+                      alt="Profile"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  </td>
+                  <td className="p-2">{user.username}</td>
                   <td className="p-2">{user.userId}</td>
                   <td className="p-2">{user.completedTasks}</td>
                   <td className="p-2">{user.score}</td>
@@ -179,35 +208,32 @@ const LeaderBoard = () => {
           </table>
         </div>
 
-        {/* Display the performance graph */}
-        <h2 className="text-xl text-center mt-10 font-bold">
-          Weekly Performance Comparison (Top 7 Users)
-        </h2>
-        <ResponsiveContainer
-          width="100%"
-          height={400}
-          className="mt-4 transition-opacity duration-500 opacity-100 hover:opacity-80 text-black"
-        >
-          <LineChart
-            data={users.slice(0, 5)} // Show only the top 5 users
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="username" className="text-black text-sm" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="score" stroke="#8884d8" />
-            <Line type="monotone" dataKey="completedTasks" stroke="#82ca9d" />
-          </LineChart>
-        </ResponsiveContainer>
+        {/* Graph Section */}
+        <div className="mt-10 bg-white shadow-lg rounded-lg p-6">
+          <h2 className="text-xl font-bold mb-4 text-center">Performance Graph</h2>
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={graphData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="score"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="completedTasks"
+                stroke="#82ca9d"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };
