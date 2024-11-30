@@ -89,46 +89,52 @@ const Sidebar = ({ currentUser, recentChats, allUsers, onSelectChat }) => {
   });
 
   return (
-    <div className="w-80 border-r border-gray-200 bg-white flex flex-col">
-      <div className="p-4">
-        <Search onSelectUser={onSelectChat} />
-      </div>
-      <div className="flex-1 overflow-y-auto">
-        {sortedRecentChats.map((chat) => {
-          const lastMessage = chatsWithLastMessage[chat.uid];
+    <div className={styles.sidebar_outer}>
+      <div
+        className={`w-64 bg-transparent flex flex-col ${styles.sidebar_inner}`}
+      >
+        <div className="p-4 bg-transparent">
+          <Search onSelectUser={onSelectChat}/>
+        </div>
+        <div className="flex-1 overflow-y-auto">
+          {sortedRecentChats.map((chat) => {
+            const lastMessage = chatsWithLastMessage[chat.uid];
 
-          return (
-            <div
-              key={chat.uid}
-              onClick={() => onSelectChat(chat)}
-              className="flex items-center gap-3 p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
-            >
-              <div className={styles.flip_card}>
-                {chat.username?.[0]?.toUpperCase()}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex justify-between items-baseline">
-                  <div className="font-medium truncate">{chat.username}</div>
-                  {lastMessage && (
-                    <div className="text-xs text-gray-500 ml-2">
-                      {formatTimestamp(lastMessage.timestamp)}
+            return (
+              <div
+                key={chat.uid}
+                onClick={() => onSelectChat(chat)}
+                className={`flex items-center gap-3 p-4 cursor-pointer border-b border-gray-100 ${styles.chat_rec}`}
+              >
+                <div className={styles.flip_card}>
+                  {chat.username?.[0]?.toUpperCase()}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-baseline">
+                    <div className="text-lg font-semibold text-white truncate">
+                      {chat.username}
                     </div>
-                  )}
-                </div>
-                <div className="text-sm text-gray-500 truncate">
-                  {lastMessage ? (
-                    <span>
-                      {lastMessage.sender === currentUser.uid ? "You: " : ""}
-                      {lastMessage.text}
-                    </span>
-                  ) : (
-                    "No messages yet"
-                  )}
+                    {lastMessage && (
+                      <div className="text-xs text-[#D4BEE4] ml-2">
+                        {formatTimestamp(lastMessage.timestamp)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-sm text-[#D4BEE4] truncate">
+                    {lastMessage ? (
+                      <span>
+                        {lastMessage.sender === currentUser.uid ? "You: " : ""}
+                        {lastMessage.text}
+                      </span>
+                    ) : (
+                      "No messages yet"
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

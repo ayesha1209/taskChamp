@@ -1,208 +1,61 @@
-.reg_container_1 {
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-color: #fcf8f5;
-}
-
 .reg_outer {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: black;
-  background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .reg_inner {
-  backdrop-filter: blur(50px);
+  padding: 20px;
   width: 100%;
-  height: 100%;
+  max-width: 500px;
 }
 
 .reg_container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 1.5rem;
-  border-radius: 2rem;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .blurBackground {
-  backdrop-filter: blur(20px);
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
-  border-radius: 0.5rem;
+  position: relative;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .blur_inner {
-  backdrop-filter: blur(220px);
-  overflow: hidden;
-  width: 100%;
-  padding: 20px 40px;
-}
-
-.formContent {
-  width: 100%;
-  max-width: 100%;
-  padding: 1.5rem 2.5rem;
-}
-
-.title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  color: #333333;
-  text-align: center;
-}
-
-.imagePreview {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.input {
-  background-color: rgba(129, 59, 183, 0.058);
-  backdrop-filter: blur(200px);
-  border: 2px solid #dad5e155;
-  color: white;
-  width: 100%;
-  font-size: 14px;
-  padding: 2px 0.75rem;
-  border-radius: 5px;
-  transition: border 0.3s ease;
-}
-
-.input:focus {
-  background-color: rgba(129, 59, 183, 0.153);
-}
-
-.registerButton {
-  width: 100%;
-  background-color: #669fd6;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-  transition: transform 0.7s ease, background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.registerButton:hover {
-  background-color: #4b68ae;
-  transform: scale(1.05);
-}
-
-.userIDText,
-.errorMessage {
-  text-align: center;
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-.errorMessage {
-  color: #ef4444;
-}
-
-.loginRedirect {
-  text-align: center;
-  font-size: 1rem;
-  color: #333333;
-  margin-top: 1rem;
-}
-
-.loginLink {
-  color: #3b82f6;
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.loginLink:hover {
-  color: #6d5f82;
-}
-
-.sidePanel {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .reg_container {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .formContent {
-    order: 2;
-    padding: 2rem;
-  }
-
-  .sidePanel {
-    display: flex;
-    width: 50%;
-    order: 1;
-    background-color: #f0f5fc;
-    border-radius: 1.5rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .sidePanelTitle {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #481e7cf5;
-  }
-
-  .sidePanelSubtitle {
-    color: #ef4444;
-    font-size: 1.875rem;
-    font-weight: medium;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .sidePanelImage {
-    width: 100%;
-  }
-}
-
-.submitButton {
-  background-color: #622fa2c7;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 1rem;
-  margin-top: 20px;
-  font-weight: bold;
-  width: 100%;
-  border-radius: 7px;
-  transition: background-color 0.6s ease, transform 0.6s ease;
-}
-
-.submitButton:hover {
-  background-color: #8450c4c7;
-  transform: scale(1.03);
+  padding: 20px;
 }
 
 .reg_image {
-  width: 8rem;
-  height: 8rem;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 1.5s ease-in-out;
-  box-shadow: 0 8px 16px rgba(2, 0, 4, 0.618);
 }
 
-.reg_image:hover {
-  transform: rotateY(360deg);
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
 }

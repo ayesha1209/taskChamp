@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 1px solid #e5e7eb;
 }
 
 .headerInfo {
@@ -90,13 +89,47 @@
   background-color: #1557b0;
 }
 
+.transparent_div {
+  background-color: transparent;
+}
+
+.chat_head_outer {
+  border: 1.5px solid rgb(187, 159, 213);
+  background-size: cover;
+  border-left: transparent;
+  background-position: center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  /* background: linear-gradient(270deg, #010720, #1b0639, #2f0644); */
+  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+}
+
+.chat_head_inner {
+  backdrop-filter: blur(500px);
+  background-color: #0801207e;
+}
+
+.chat_outer {
+  position: relative;
+  display: flex;
+  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+}
+
+.chat_inner {
+  width: 100%;
+  backdrop-filter: blur(40px);
+  overflow-y: auto;
+}
+
 .flip_card {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: #e0edfc;
+  background-color: rgba(204, 188, 226, 0.6);
   display: flex;
   align-items: center;
+  color: #1f0734;
+  font-weight: 700;
   justify-content: center;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -107,16 +140,19 @@
 }
 
 .chat_button {
-  background-color: #3b82f6; /* bg-blue-500 */
-  color: white; /* text-white */
-  border-radius: 0.5rem; /* rounded-lg */
-  padding: 0.5rem 1rem; /* px-4 py-2 */
+  background-color: rgb(89, 22, 176);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 10px;
+  padding-right: 12px;
   display: flex;
-  align-items: center; /* items-center */
-  gap: 0.5rem; /* gap-2 */
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
 .chat_button:hover {
-  background-color: #2563eb; /* hover:bg-blue-600 */
+  background-color: rgba(89, 22, 176, 0.755);
+  box-shadow: #111827;
 }

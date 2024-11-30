@@ -113,39 +113,49 @@ const ChatWindow = ({ currentUser, chatPartner }) => {
 
   return (
     <div className="flex-1 flex flex-col">
-      <div className="border-b border-gray-200 p-4 flex items-center gap-3">
-        <div className={styles.flip_card}>
-          {chatPartner.username?.[0]?.toUpperCase()}
+      <div className={styles.chat_head_outer}>
+        <div
+          className={`p-4 flex items-center gap-2 ${styles.chat_head_inner}`}
+        >
+          <div className={styles.flip_card}>
+            {chatPartner.username?.[0]?.toUpperCase()}
+          </div>
+          <div className="text-xl font-bold ml-2 text-white">
+            {chatPartner.username}
+          </div>
         </div>
-        <div className="font-medium">{chatPartner.username}</div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((msg) => (
-          <Message
-            key={msg.id}
-            message={msg}
-            isSentByCurrentUser={msg.sender === currentUser.uid}
-          />
-        ))}
+      <div className={`flex-1 overflow-y-auto`}>
+        <div className={`space-y-4 p-5`}>
+          {messages.map((msg) => (
+            <Message
+              key={msg.id}
+              message={msg}
+              isSentByCurrentUser={msg.sender === currentUser.uid}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="border-t border-gray-200 p-4">
-        <div className="flex items-center gap-2">
-          <button className="text-gray-400 hover:text-gray-600">
-            <Paperclip className="h-5 w-5" />
-          </button>
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={messageText}
-            onChange={(e) => setMessageText(e.target.value)}
-            className="flex-1 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
-          />
-          <button onClick={sendMessage} className={styles.chat_button}>
-            <Send className="h-4 w-4" />
-            Send
-          </button>
+      <div>
+        <div className={`p-5`}>
+          <div className="flex items-center gap-2">
+            <button className="text-gray-400 hover:text-gray-600">
+              <Paperclip className="h-5 w-5 text-[#D4BEE4] hover:text-[#9B7EBD]" />
+            </button>
+            <input
+              type="text"
+              placeholder="Type a message..."
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
+              className="flex-1 placeholder-[#9B7EBD] text-[#3B1E54] font-semibold border border-[#9B7EBD] rounded-lg px-4 py-2 focus:outline-none focus:border-[#3B1E54]"
+            />
+            <button onClick={sendMessage} className={styles.chat_button}>
+              <Send className="h-4 w-4" />
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </div>

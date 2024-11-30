@@ -56,7 +56,7 @@
   width: 100%;
   background-size: cover;
   background-color: rgb(4, 0, 7);
-  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  /* background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif"); */
   /* background-image: url("https://i.pinimg.com/564x/96/20/f2/9620f20732015118ec80aa994c959226.jpg"); */
   /* background: linear-gradient(180deg, rgba(41, 20, 67, 0.881), rgb(12, 1, 34)); */
 }

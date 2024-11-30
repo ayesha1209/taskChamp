@@ -1,45 +1,47 @@
 /* Message.module.css */
 .messageWrapper {
-    display: flex;
-    margin-bottom: 1rem;
-  }
-  
-  .messageSent {
-    display: flex;
-    margin-bottom: 1rem;
-    justify-content: flex-end;
-  }
-  
-  .messageReceived {
-    display: flex;
-    margin-bottom: 1rem;
-    justify-content: flex-start;
-  }
-  
-  .messageContent {
-    max-width: 70%;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-  }
-  
-  .sentBubble {
-    max-width: 70%;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    background-color: #1a73e8;
-    color: white;
-    border-top-right-radius: 4px;
-  }
-  
-  .receivedBubble {
-    max-width: 70%;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    background-color: white;
-    color: #111827;
-    border-top-left-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.messageSent {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: flex-end;
+}
+
+.messageReceived {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+}
+
+.messageContent {
+  max-width: 70%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+}
+
+.sentBubble {
+  max-width: 70%;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  background-color: rgb(118, 82, 165);
+  color: white;
+  font-weight: 600;
+  border-top-right-radius: 2px;
+}
+
+.receivedBubble {
+  max-width: 70%;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  background-color: rgba(243, 237, 255, 0.828);
+  color: #3b1e54;
+  font-weight: 600;
+  border-top-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
