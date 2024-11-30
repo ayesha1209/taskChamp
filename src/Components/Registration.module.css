@@ -10,6 +10,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 2;
+  min-height: 100vh;
   background-color: black;
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
 }
@@ -27,8 +29,10 @@
   max-width: 500px;
   border-radius: 1.5rem;
   border-radius: 2rem;
+  margin-top: -13px;
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  scale: 0.9;
+  border: 2px solid #9793bab0;
 }
 
 .blurBackground {
@@ -43,22 +47,16 @@
 
 .blur_inner {
   backdrop-filter: blur(220px);
+  background-color: #9793ba1a;
   overflow: hidden;
   width: 100%;
-  padding: 20px 40px;
+  padding: 23px 40px;
 }
 
 .formContent {
   width: 100%;
   max-width: 100%;
   padding: 1.5rem 2.5rem;
-}
-
-.title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  color: #333333;
-  text-align: center;
 }
 
 .imagePreview {
@@ -178,19 +176,18 @@
 }
 
 .submitButton {
-  background-color: #622fa2c7;
+  background-color: #5c4cb0b7;
   color: #ffffff;
   padding: 5px;
-  font-size: 1rem;
-  margin-top: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  margin-top: 40px;
   width: 100%;
   border-radius: 7px;
   transition: background-color 0.6s ease, transform 0.6s ease;
 }
 
 .submitButton:hover {
-  background-color: #8450c4c7;
+  background-color: #5d4cb089;
   transform: scale(1.03);
 }
 
@@ -201,18 +198,12 @@
   border: 2px solid rgba(210, 179, 255, 0.6);
   z-index: 10;
   transition: transform 1.5s ease;
-  /* box-shadow: 0 8px 16px rgba(58, 15, 90, 0.804); */
 }
-
-/* {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 1.5s ease-in-out;
-  box-shadow: 0 8px 16px rgba(2, 0, 4, 0.618);
-} */
 
 .reg_image:hover {
   transform: rotateY(360deg);
+}
+
+.regImage {
+  position: fixed;
 }

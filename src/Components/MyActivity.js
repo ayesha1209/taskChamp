@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import StreakCalendar from "./StreakCalendar";
 import Navbar from "./Navbar";
 import styles from "./MyActivity.module.css";
 import Footer from "./Footer";
 import { User } from "../models/User"; // Adjust import path as needed
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const MyActivity = () => {
   const [user, setUser] = useState(null);
@@ -111,10 +111,10 @@ const MyActivity = () => {
       if (!element) return false;
       const rect = element.getBoundingClientRect();
       return (
-        mouse.current.x >= rect.left &&
-        mouse.current.x <= rect.right &&
-        mouse.current.y >= rect.top &&
-        mouse.current.y <= rect.bottom
+        mouse.current.x >= rect.left - 25 &&
+        mouse.current.x <= rect.right + 25 &&
+        mouse.current.y >= rect.top - 25 &&
+        mouse.current.y <= rect.bottom + 25
       );
     }
 
@@ -148,7 +148,7 @@ const MyActivity = () => {
       this.start = {
         x: mouse.x + Math.random() * 5 - 2.5,
         y: mouse.y + Math.random() * 5 - 2.5,
-        size: Math.random() * 10 + 5,
+        size: Math.random() * 10 + 10,
       };
       this.end = {
         x: this.start.x + Math.random() * 600 - 300,
@@ -159,7 +159,7 @@ const MyActivity = () => {
       this.size = this.start.size;
       this.style = rgb[Math.floor(Math.random() * rgb.length)];
       this.time = 0;
-      this.ttl = 450;
+      this.ttl = 500;
     }
     draw(ctx) {
       ctx.fillStyle = this.style;
@@ -227,7 +227,9 @@ const MyActivity = () => {
                         className={styles.profileImage}
                       />
                     )}
-                    <h2 className={styles.userTask}>{user.username}'s Task</h2>
+                    <h2 className={styles.userTask}>
+                      {user.username}'s Activity
+                    </h2>
                   </div>
                 )}
                 <StreakCalendar />

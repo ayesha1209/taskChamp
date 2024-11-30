@@ -119,6 +119,7 @@ const Login = () => {
             animation: "pulse 0s infinite",
           }}
         ></div>
+        <img src="log.png" className={styles.logImage}></img>
         <div
           ref={cardRef}
           className={`${styles.cardContainer} flex flex-col md:flex-row w-[40%] max-w-6xl relative`}

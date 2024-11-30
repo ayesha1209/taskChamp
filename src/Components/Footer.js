@@ -28,9 +28,9 @@ const Footer = () => {
       <div className={styles.footer_in}>
         <div className={styles.footer_container}>
           <div className={styles.footerSection}>
-            <h2 className={styles.footer_title}>Task List</h2>
+            <h2 className={styles.footer_title}>Tasky</h2>
             <p>
-              Stay organized and boost your productivity with our Task List App.
+              Stay organized and boost your productivity with our app "Tasky".
               Easily manage your daily tasks, set priorities, and track your
               progress all in one place.
             </p>

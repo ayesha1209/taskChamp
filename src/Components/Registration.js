@@ -44,8 +44,8 @@ const Registration = () => {
       const x = e.clientX - left;
       const y = e.clientY - top;
 
-      const rotateX = (y / height - 0.5) * 10; // Rotate based on vertical mouse movement
-      const rotateY = (x / width - 0.5) * -10; // Rotate based on horizontal mouse movement
+      const rotateX = (y / height - 0.5) * 4;
+      const rotateY = (x / width - 0.5) * -4;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
@@ -137,7 +137,7 @@ const Registration = () => {
   return (
     <div ref={glowRef} className={`${styles.reg_outer}`}>
       <div
-        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 py-7 ${styles.reg_inner} `}
+        className={`flex min-h-screen items-center justify-center bg-[#f5f5f5f] px-20 ${styles.reg_inner} `}
       >
         <div
           className="glowingEffect"
@@ -157,17 +157,17 @@ const Registration = () => {
             animation: "pulse 0s infinite",
           }}
         ></div>
-
+        <img src="reg.png" className={styles.regImage}></img>
         <div ref={cardRef} className={styles.reg_container}>
           <div className={`${styles.blurBackground} w-[100%] md:w-[100%]`}>
             <div className={styles.blur_inner}>
-              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-6">
+              <h2 className="text-3xl font-bold text-center text-[#f5f5f5] mb-3">
                 Create Account
               </h2>
 
               {/* Image Preview */}
               {profileImageUrl && (
-                <div className="mb-4 flex justify-center">
+                <div className="mb-0 flex justify-center">
                   <img
                     src={profileImageUrl}
                     alt="Profile Preview"
@@ -176,10 +176,10 @@ const Registration = () => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2.5">
                 <div>
                   <label className="block text-sm text-[#d1c4db] font-medium mb-1">
-                    Full Name
+                    Username
                   </label>
                   <input
                     type="text"
@@ -273,7 +273,7 @@ const Registration = () => {
                   />
                 </div>
 
-                <button type="submit" className={styles.submitButton}>
+                <button type="submit" className={`${styles.submitButton} mt-2`}>
                   Register
                 </button>
                 {userId && (
@@ -289,12 +289,12 @@ const Registration = () => {
                 )}
               </form>
 
-              <p className="text-center text-md text-[#d1c4db] mt-4">
-                Already have an account?{" "}
+              <p className="text-center text-md text-[#d1c4db] mt-3">
+                Already have an account?
                 <button
                   type="button"
                   onClick={handleLoginRedirect}
-                  className="text-[#e09eff] text-md hover:text-[#c880d5]"
+                  className="text-[#736caf] pl-2 text-md hover:text-[#9793ba]"
                 >
                   Login here
                 </button>

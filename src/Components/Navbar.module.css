@@ -3,7 +3,7 @@
   backdrop-filter: blur(50px);
   height: 100vh;
   width: 20%;
-  background-color: rgba(60, 11, 123, 1);
+  background-color: #3a2d77;
   position: fixed;
   flex-direction: column;
   justify-content: flex-start;
@@ -25,6 +25,17 @@
   background-image: url("https://i.pinimg.com/564x/d6/d1/51/d6d151c4b698ecf4b1582292c2f487bd.jpg");
 }
 
+.nav_link div {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav_link img {
+  height: 20px;
+  margin-right: 18px;
+}
+
 .navbar nav ul {
   list-style-type: none;
   padding: 0;
@@ -32,7 +43,7 @@
 }
 
 .navbar nav ul li {
-  padding: 10px 20px;
+  padding: 11px 20px;
   text-align: left;
   font-weight: 600;
   cursor: pointer;
@@ -42,10 +53,9 @@
 .navbar nav ul li:hover {
   background-color: transparent;
   font-size: 18px;
-  color: #b99bc7;
-  background-color: rgba(31, 7, 60, 0.751);
+  /* color: #d2c8e2; */
+  background-color: #31246e;
   backdrop-filter: blur(100px);
-  /* background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif"); */
   box-shadow: 0 5px 10px black;
   transform: scale(1.05);
 }

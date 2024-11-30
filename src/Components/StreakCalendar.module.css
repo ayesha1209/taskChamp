@@ -10,13 +10,14 @@
   font-size: 28px;
   font-weight: bold;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: white;
   text-align: center;
 }
 
 .streak_calendar_grid {
   display: grid;
+  padding: 0 20px;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   width: 100%;
@@ -30,7 +31,7 @@
 
 .streak_calendar_header {
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   background-color: #1a0933;
   /* background: linear-gradient(
     150deg,
@@ -51,7 +52,7 @@
   height: 1px;
   background-color: #6a3ba3;
   border-radius: 50%;
-  box-shadow: 0 0 150px 150px rgba(111, 6, 210, 0.45);
+  box-shadow: 0 0 130px 130px #5f4db144;
   pointer-events: none;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -67,7 +68,7 @@
 }
 
 .streak_calendar_table_1 {
-  margin: 0px 120px;
+  margin-left: -100px;
   border-radius: 15px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -77,13 +78,26 @@
   background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
 }
 
+.streakImage img {
+  height: 400px;
+  opacity: 0.9;
+  margin-left: -80px;
+  transition: transform 1s ease-in-out;
+}
+
+.streakImage img:hover {
+  transform: scale(1.05);
+}
+
 .streak_calendar_table {
-  backdrop-filter: blur(130px);
+  backdrop-filter: blur(150px);
+  background-color: #1a093341;
   border-radius: 20px;
   position: relative;
-  padding: 50px 65px;
+  padding: 35px 20px;
+  padding-top: 25px;
   overflow: hidden;
-  border: 3px solid rgba(210, 179, 255, 0.6);
+  border: 3px solid #9793ba;
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   perspective: 1000px;
 }
@@ -94,19 +108,19 @@
 
 .streak_calendar_day {
   padding: 10px 8px;
-  background-color: #f0f0ffd5;
+  background-color: #bdbad4cd;
   color: black;
   text-align: center;
   opacity: 0.85;
   cursor: pointer;
   border-radius: 5px;
-  transition: transform 0.5s ease, box-shadow 0.2s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .streak_calendar_day:hover {
   transform: scale(1.02);
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px black;
+  background-color: #dcd8f1;
+  box-shadow: 0 2px 8px black;
 }
 
 .streak_calendar_day.activity {
@@ -138,7 +152,10 @@ body {
   display: flex;
   width: 100%;
   justify-content: center;
-  gap: 385px;
+  gap: 110px;
+  color: #9793ba;
+  font-size: 22px;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -158,17 +175,17 @@ body {
 }
 
 .prev_button {
-  background-image: url("/public/prev.svg");
+  background-image: url("/public/left.svg");
   float: left;
 }
 
 .next_button {
-  background-image: url("/public/next.svg");
+  background-image: url("/public/right.svg");
   float: right;
 }
 
 .selected_day {
-  background-color: white !important;
+  background-color: #dcd8f1 !important;
   color: black;
 }
 
@@ -184,4 +201,73 @@ body {
 
 .streak_image:hover {
   transform: rotateY(360deg);
+}
+
+.taskForm {
+  background-color: #9793ba1c;
+  border-radius: 15px;
+  border: 2px solid #9793ba;
+  padding: 40px;
+  margin: 0px 40px;
+}
+
+.taskForm h2 {
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.taskFormPara {
+  margin: 30px 0;
+  font-size: 17px;
+  text-align: center;
+}
+
+.centeredImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.activeImage {
+  margin: 0 30px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  padding: 40px;
+  padding-bottom: 10px;
+  background-color: #9793ba1d;
+  border: 2px solid #9793ba;
+}
+
+.activeImage img {
+  padding-top: 30px;
+}
+
+.activeImage h3 {
+  font-size: 28px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+.streakImageOuter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

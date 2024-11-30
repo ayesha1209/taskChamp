@@ -3,20 +3,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  padding-bottom: 30px;
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(110deg, #ff8a8a, #9c76c1, #3bacb6);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
   background-size: 200% 200%;
-  color: #ffffff;
-  font-size: 24px;
-  z-index: 1000;
-  animation: backgroundShift 6s ease-in-out infinite;
+  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+  color: white;
+  font-size: 30px;
+  backdrop-filter: blur(50px);
+  z-index: 1;
+  font-weight: 700;
+  /* transition: transform 1s ease-in-out; */
+  /* animation: backgroundShift 6s ease-in-out infinite; */
 }
 
+.splashScreen_inner {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  background-color: rgba(22, 0, 56, 0.25);
+  backdrop-filter: blur(200px);
+}
 
-@keyframes backgroundShift {
+/* @keyframes backgroundShift {
   0% {
     background-position: 0% 50%;
   }
@@ -26,13 +44,13 @@
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 .splashScreen h1 {
   font-size: 130px;
   font-weight: 1000;
-  opacity: 0;
-  animation: fadeInScale 1.5s ease-out forwards;
+  color: white;
+  animation: fadeIn 0.1s ease-out forwards;
 }
 
 @keyframes fadeInScale {
@@ -47,10 +65,10 @@
 }
 
 .splashScreen p {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 22px;
+  margin-top: 20px;
   opacity: 0;
-  animation: fadeIn 2s ease-out forwards 1s;
+  animation: fadeIn 2.5s ease-out forwards 1s;
 }
 
 @keyframes fadeIn {
@@ -62,10 +80,6 @@
   }
 }
 
-.logo {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeInScale 1.5s ease-out forwards;
+.splashScreen.hide {
+  transform: translateY(-100%);
 }
