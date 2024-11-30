@@ -98,14 +98,14 @@ const LeaderBoard = () => {
     <div>
       <Navbar />
       <div className="container mx-auto p-8" style={{ paddingLeft: "280px" }}>
-        <h1 className="text-3xl font-bold text-center mb-10 mt-10">
+        <h1 className="text-5xl font-bold text-center mb-10 mt-10">
           LeaderBoard
         </h1>
 
         {/* Logged-in User's Rank */}
         {loggedInUserRank ? (
-          <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
-            <h2 className="text-xl font-bold mb-2">
+          <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 className="text-2xl font-bold mb-2">
               Your Rank: {loggedInUserRank.rank}
             </h2>
             <div className="flex items-center gap-4">
@@ -115,13 +115,13 @@ const LeaderBoard = () => {
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div>
-                <p className="text-gray-600 text-sm font-semibold mb-1">
+                <p className="text-gray-600 text-xl font-semibold mb-1">
                   Username: {loggedInUserRank.username}
                 </p>
-                <p className="text-gray-600 text-sm font-semibold mb-1">
+                <p className="text-gray-600 text-xl font-semibold mb-1">
                   Tasks Completed: {loggedInUserRank.completedTasks}
                 </p>
-                <p className="text-gray-600 text-sm font-semibold mb-1">
+                <p className="text-gray-600 text-xl font-semibold mb-1">
                   Score: {loggedInUserRank.score}
                 </p>
               </div>

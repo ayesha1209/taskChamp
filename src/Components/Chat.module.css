@@ -30,7 +30,7 @@
 
 .window_div_outer {
   width: 100%;
-  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  /* background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif"); */
 }
 
 .chat_window {
@@ -110,7 +110,7 @@
 }
 
 .no_chat_outer {
-  background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif");
+  /* background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif"); */
 }
 
 .no_chat_inner {

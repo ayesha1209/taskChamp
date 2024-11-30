@@ -63,7 +63,7 @@ const Post = ({ post, user }) => {
           </div>
         </div>
 
-        <p className="text-white mb-4 text-xl font-semibold">{post.content}</p>
+        <p className="text-black mb-4 text-xl font-semibold">{post.content}</p>
 
         <div className="flex items-center space-x-6 mb-1">
           <button

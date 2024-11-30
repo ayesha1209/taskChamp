@@ -9,66 +9,29 @@ const StreakCalendar = () => {
   const [activityDays, setActivityDays] = useState([]);
   const userId = localStorage.getItem("userId");
   const tableRef = useRef(null);
-  const glowRef = useRef(null);
   const [hovered, setHovered] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const glow = glowRef.current;
-    const glowContainer = tableRef.current;
-
-    const handleMouseMove = (e) => {
-      if (hovered) {
-        setCursorPosition({
-          x: e.clientX - glowContainer.getBoundingClientRect().left,
-          y: e.clientY - glowContainer.getBoundingClientRect().top,
-        });
-      }
-    };
-
-    glowContainer.addEventListener("mousemove", handleMouseMove);
-    glowContainer.addEventListener("mouseenter", () => {
-      setHovered(true);
-      glow.classList.add("active");
-    });
-    glowContainer.addEventListener("mouseleave", () => {
-      setHovered(false);
-      glow.classList.remove("active");
-    });
-
-    return () => {
-      glowContainer.removeEventListener("mousemove", handleMouseMove);
-      glowContainer.removeEventListener("mouseenter", () => setHovered(true));
-      glowContainer.removeEventListener("mouseleave", () => setHovered(false));
-    };
-  }, [hovered]);
-
+  // Remove the glow effect
   useEffect(() => {
     const table = tableRef.current;
 
-    const handleMouseMove = (e) => {
-      const { width, height, left, top } = table.getBoundingClientRect();
-      const x = e.clientX - left;
-      const y = e.clientY - top;
-
-      const rotateX = (y / height - 0.5) * 10;
-      const rotateY = (x / width - 0.5) * -10;
-
-      table.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    const handleMouseEnter = () => {
+      setHovered(true);
     };
 
     const handleMouseLeave = () => {
-      table.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+      setHovered(false);
     };
 
     if (table) {
-      table.addEventListener("mousemove", handleMouseMove);
+      table.addEventListener("mouseenter", handleMouseEnter);
       table.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (table) {
-        table.removeEventListener("mousemove", handleMouseMove);
+        table.removeEventListener("mouseenter", handleMouseEnter);
         table.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
@@ -182,16 +145,6 @@ const StreakCalendar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseExit}
         >
-          <div
-            className={styles.glowingEffect}
-            ref={glowRef}
-            style={{
-              position: "absolute",
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-            }}
-          ></div>
-
           <div className={styles.streak_calendar_table_2}>
             <h2 className={styles.streak_calendar_title}>
               Streak Calendar -{" "}
