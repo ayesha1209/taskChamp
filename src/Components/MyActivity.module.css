@@ -2,31 +2,19 @@
   display: flex;
   flex-direction: column;
 }
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 .pageContainer {
   display: flex;
   flex-direction: column;
-  color: #cebde1;
+  color: #000000;
   width: 100%;
   overflow: hidden;
   min-height: 100vh;
   position: relative;
-}
-
-.debug {
-  position: fixed;
-  left: 100px;
-  top: 100px;
-  color: #f4f4f4;
-}
-
-.canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  pointer-events: none;
 }
 
 .container {
@@ -55,10 +43,7 @@
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
-  background-color: rgb(4, 0, 7);
-  /* background-image: url("https://i.pinimg.com/originals/a7/99/61/a79961637e3d670135579a9138176fcf.gif"); */
-  /* background-image: url("https://i.pinimg.com/564x/96/20/f2/9620f20732015118ec80aa994c959226.jpg"); */
-  /* background: linear-gradient(180deg, rgba(41, 20, 67, 0.881), rgb(12, 1, 34)); */
+  background-color: rgb(255, 255, 255);
 }
 
 .streak {
@@ -72,44 +57,18 @@
   align-items: center;
 }
 
-.footer {
-  background-color: #0d1b2a;
-  color: #fff;
-  padding: 40px 0;
-  position: relative;
-  z-index: 10;
+.headingContainer {
   text-align: center;
-  width: 100%;
+  margin-bottom: 20px;
+ 
 }
 
 .heading {
-  font-size: 50px;
-  font-weight: 800;
-  text-align: center;
-  z-index: 10;
-  position: absolute;
-  margin-top: 30px;
-  /* background: linear-gradient(90deg, #ead6ff, #ead6ff, #ead6ff); */
-  background-color: white;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.heading:nth-child(1) {
-  color: rgb(231, 219, 255);
-}
-
-.heading:nth-child(2) {
-  color: rgb(181, 145, 213);
-  animation: animate 5s ease-in-out infinite;
-}
-
-
-.userGreeting {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  font-weight: bolder;
+  color: #000000;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .profileImage {
@@ -119,13 +78,19 @@
   border: 3px solid rgba(210, 179, 255, 0.6);
   margin-bottom: 10px;
   z-index: 10;
- 
-  /* box-shadow: 0 8px 16px rgba(58, 15, 90, 0.804); */
 }
-
-
 
 .userTask {
   font-size: 24px;
   text-align: center;
+}
+
+.footer {
+  background-color: #0d1b2a;
+  color: #000000;
+  padding: 40px 0;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
 }

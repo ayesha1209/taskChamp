@@ -3,12 +3,13 @@
   backdrop-filter: blur(50px);
   height: 100vh;
   width: 20%;
-  background-color: rgba(60, 11, 123, 1);
+  background-color: rgb(222, 175, 244);
   position: fixed;
   flex-direction: column;
   justify-content: flex-start;
   top: 0;
   left: 0;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .navbar_outer {
@@ -18,11 +19,11 @@
   top: 0;
   left: 0;
   display: flex;
-  color: #f5f5f5;
+  color: #141313;
   flex-direction: column;
   background-color: black;
   justify-content: flex-start;
-  background-image: url("https://i.pinimg.com/564x/d6/d1/51/d6d151c4b698ecf4b1582292c2f487bd.jpg");
+  
 }
 
 .navbar nav ul {
@@ -36,13 +37,13 @@
   text-align: left;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 1s ease-in-out, box-shadow 1s ease-in-out;
+
 }
 
 .navbar nav ul li:hover {
   background-color: transparent;
   font-size: 18px;
-  color: #b99bc7;
+  color: #f5e3fe;
   background-color: rgba(31, 7, 60, 0.751);
   backdrop-filter: blur(100px);
   /* background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif"); */

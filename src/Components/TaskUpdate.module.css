@@ -8,7 +8,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 .inputField,
@@ -33,15 +33,15 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 18px;
-  background-color: #007bff;
-  color: white;
+  background-color: #fff9f9;
+  color: rgb(0, 0, 0);
   font-weight: 600;
   cursor: pointer;
   border: none;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #f7f9fc;
 }
 
 .alertText {

@@ -4,20 +4,21 @@
   gap: 10px;
   width: 350px;
   margin: 0 auto;
-  box-shadow: 0 9px 12px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+  
   border-radius: 12px;
-  color: #d1c4db;
+  color: #000000;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   background-position: center;
-  border: 3px solid rgba(210, 179, 255, 0.62);
-  background-color: #4a2b73;
+
+  background-color: #ffdff4;
   /* background-image: url("../../public/log5.png"); */
   /* background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif"); */
   /* background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif"); */
   /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; */
-  perspective: 1000px;
+  /* perspective: 1000px; */
 }
 
 .task_form {
@@ -28,7 +29,7 @@
   
   width: 100%;
   border-radius: 12px;
-  color: #d1c4db;
+  color: #000000;
   
   perspective: 1000px;
 }
@@ -67,36 +68,36 @@
   border-radius: 7px;
   width: 100%;
  
-  color: #d1c4db;
+  color: #000000;
   font-size: 16px;
   background-color: transparent;
 }
 
 .task_form_input::placeholder {
-  color: #d1c4db;
+  color: #000000;
 }
 
 .task_form_input:focus,
 .task_form_select:focus {
-  border: 2px solid #d1c4db88 !important;
+  border: 2px solid #d4acf388 !important;
   outline: none;
 }
 
 .task_form_button {
-  background-color: rgb(92, 54, 145);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   margin-top: 10px;
   height: 40px;
   font-weight: 700;
   border-radius: 7px;
-  color: white;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   border: none;
  
 }
 
 .task_form_button:hover {
-  background-color: rgb(78, 43, 128);
+  background-color: rgb(248, 248, 248);
   transform: scale(1.03);
 }
 

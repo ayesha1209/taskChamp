@@ -13,29 +13,7 @@ const StreakCalendar = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   // Remove the glow effect
-  useEffect(() => {
-    const table = tableRef.current;
 
-    const handleMouseEnter = () => {
-      setHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-      setHovered(false);
-    };
-
-    if (table) {
-      table.addEventListener("mouseenter", handleMouseEnter);
-      table.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      if (table) {
-        table.removeEventListener("mouseenter", handleMouseEnter);
-        table.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
 
   const initialDateTask = localStorage.getItem("selectedDate")
     ? localStorage.getItem("selectedDate")
