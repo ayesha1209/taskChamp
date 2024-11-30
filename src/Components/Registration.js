@@ -141,21 +141,21 @@ const Registration = () => {
       >
         <div
           className="glowingEffect"
-          style={{
-            position: "absolute",
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-            width: "1px",
-            height: "1px",
-            backgroundColor: "#6a3ba3",
-            borderRadius: "50%",
-            boxShadow: "0 0 200px 200px #481e7cf5",
-            pointerEvents: "none",
-            transform: "scale(1)",
-            transition: "all 0s ease-in-out",
-            opacity: 0.3,
-            animation: "pulse 0s infinite",
-          }}
+          // style={{
+          //   position: "absolute",
+          //   left: `${cursorPosition.x}px`,
+          //   top: `${cursorPosition.y}px`,
+          //   width: "1px",
+          //   height: "1px",
+          //   backgroundColor: "#6a3ba3",
+          //   borderRadius: "50%",
+          //   boxShadow: "0 0 200px 200px #481e7cf5",
+          //   pointerEvents: "none",
+          //   transform: "scale(1)",
+          //   transition: "all 0s ease-in-out",
+          //   opacity: 0.3,
+          //   animation: "pulse 0s infinite",
+          // }}
         ></div>
 
         <div ref={cardRef} className={styles.reg_container}>

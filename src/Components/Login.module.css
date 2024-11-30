@@ -4,7 +4,7 @@
   background-size: cover;
   position: relative;
   background-position: center;
-  background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif");
+  /* background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif"); */
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
   overflow: hidden;
   border: 2px solid rgba(187, 132, 247, 0.679);
   background-position: center;
-  background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif");
+  /* background-image: url("https://i.pinimg.com/originals/70/eb/0b/70eb0b53eb57c91db403928c5d02a19a.gif"); */
 }
 
 .welcomeTitle {
