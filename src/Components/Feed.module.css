@@ -1,4 +1,4 @@
-.flip_card {
+/* .flip_card {
   width: 2rem;
   height: 2rem;
   background: linear-gradient(
@@ -73,9 +73,9 @@
 
 .top_li:hover {
   /* background: linear-gradient(#340274,#6600ff,#9aa2ff); */
-  background-color: rgba(229, 202, 255, 0.1);
+  /* background-color: rgba(229, 202, 255, 0.1);
 }
 
 .feed_inner_load {
   height: 100vw;
-}
+} */ 
