@@ -96,106 +96,120 @@ const UserProfile = () => {
   }
 
   return (
-    <div>
-      <br></br>
-      <br></br>
-      <div className={styles.profile_container}>
-        <h2 className={styles.profile_header}>User Profile</h2>
-        <form className={styles.profile_form} onSubmit={handleSubmit}>
-          {imageUrlPreview && (
-            <div className={styles.profile_imageContainer}>
-              <img
-                src={imageUrlPreview}
-                alt="Profile"
-                className={styles.profile_image}
-              />
-            </div>
-          )}
+    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+      <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Left Section - Form */}
           <div>
-            <label className={styles.profile_label}>Username :</label>
-            <input
-              type="text"
-              name="username"
-              className={styles.profile_input}
-              value={formData.username}
-              onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
-              }
-            />
+            <h2 className="text-2xl font-semibold text-gray-700 mb-4">User Profile</h2>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              {imageUrlPreview && (
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={imageUrlPreview}
+                    alt="Profile"
+                    className="w-32 h-32 rounded-full border-2 border-gray-300 object-cover"
+                  />
+                </div>
+              )}
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Username:</label>
+                <input
+                  type="text"
+                  name="username"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                  value={formData.username}
+                  onChange={(e) =>
+                    setFormData({ ...formData, username: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                />
+                {errors.email && (
+                  <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Password:</label>
+                <div className="relative">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                    value={formData.password}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-2 transform -translate-y-1/2 text-sm text-indigo-500"
+                    onClick={() => setPasswordVisible(!passwordVisible)}
+                  >
+                    {passwordVisible ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Birthdate:</label>
+                <input
+                  type="date"
+                  name="birthdate"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                  value={formData.birthdate}
+                  onChange={(e) =>
+                    setFormData({ ...formData, birthdate: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Country:</label>
+                <input
+                  type="text"
+                  name="country"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                  value={formData.country}
+                  onChange={(e) =>
+                    setFormData({ ...formData, country: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Profile Image:</label>
+                <input
+                  type="file"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
+                  onChange={handleImageChange}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition"
+              >
+                Update Profile
+              </button>
+            </form>
           </div>
-          <div>
-            <label className={styles.profile_label}>Email :</label>
-            <input
-              type="email"
-              name="email"
-              className={styles.profile_input}
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-            {errors.email && (
-              <p className={styles.profile_error}>{errors.email}</p>
-            )}
+  
+          {/* Right Section - Placeholder (optional) */}
+          <div className="hidden md:block">
+            {/* You can add additional content or leave this empty */}
           </div>
-          <div className={styles.profile_passwordContainer}>
-            <label className={styles.profile_label}>Password :</label>
-            <input
-              type={passwordVisible ? "text" : "password"}
-              name="password"
-              className={styles.profile_passwordInput}
-              value={formData.password}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-            />
-            <button
-              type="button"
-              className={styles.profile_toggleButton}
-              onClick={() => setPasswordVisible(!passwordVisible)}
-            >
-              {passwordVisible ? "Hide" : "Show"}
-            </button>
-          </div>
-          <div>
-            <label className={styles.profile_label}>Birthdate :</label>
-            <input
-              type="date"
-              name="birthdate"
-              className={styles.profile_dateInput}
-              value={formData.birthdate}
-              onChange={(e) =>
-                setFormData({ ...formData, birthdate: e.target.value })
-              }
-            />
-          </div>
-          <div>
-            <label className={styles.profile_label}>Country :</label>
-            <input
-              type="text"
-              name="country"
-              className={styles.profile_input}
-              value={formData.country}
-              onChange={(e) =>
-                setFormData({ ...formData, country: e.target.value })
-              }
-            />
-          </div>
-          <div>
-            <label className={styles.profile_label}>Profile Image :</label>
-            <input
-              type="file"
-              className={styles.profile_input}
-              onChange={handleImageChange}
-            />
-          </div>
-          <button type="submit" className={styles.profile_submitButton}>
-            Update Profile
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
+  
 };
 
 export default UserProfile;
