@@ -46,7 +46,7 @@
   background-color: rgba(31, 7, 60, 0.751);
   backdrop-filter: blur(100px);
   /* background-image: url("https://i.pinimg.com/originals/37/d8/fd/37d8fd385021566890f0df2e253a0901.gif"); */
-  box-shadow: 0 5px 10px black;
+  /* box-shadow: 0 5px 10px black; */
   transform: scale(1.05);
 }
 
