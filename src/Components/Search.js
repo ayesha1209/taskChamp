@@ -30,13 +30,16 @@ const Search = ({ onSelectUser }) => {
   return (
     <div className="relative">
       <div className="relative">
-        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9B7EBD] h-4 w-4" />
+        <SearchIcon
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8d88b3] h-4 w-4"
+          style={{ strokeWidth: 2 }}
+        />
         <input
           type="text"
           placeholder="Search users..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full pl-10 placeholder-[#9B7EBD] text-[#3B1E54] font-semibold pr-4 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+          className="w-full pl-10 placeholder-[#8d88b3] text-[#3B1E54] font-semibold pr-4 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
         />
       </div>
       {searchTerm && (

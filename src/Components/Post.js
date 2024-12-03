@@ -96,7 +96,7 @@ const Post = ({ post, user }) => {
         </div>
 
         {showComments && (
-          <div className="space-y-4 pt-4 mt-4 border-t border-gray-100">
+          <div className="space-y-4 py-4 mt-4 border-t border-gray-100">
             {comments.map((comment, index) => (
               <div
                 key={index}
